@@ -37,7 +37,7 @@
 		  I am also very curious to hear what you think about how MVC ties into Javascript development and 
 		  the most effective library you have used for logically organizing your Javascript.
 		  </p>
-		  <p><strong>Would be great to get a discussion on MVC vs MVVM vs others etc</strong></p>
+		  <p><strong>Would be great to get a discussion on MVC vs MVVM vs others etc leave comments at the bottom!</strong></p>
 		<h3>Understanding the Model View Controller Paradigm</h3>
 		<p>I have used many frameworks which promote that they use MVC.   I don't think I have ever seen
 		the same fundamental principals implemented the same way.    </p>
@@ -70,8 +70,8 @@
       </pre> 
       <p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/backbone-101/" target="_blank">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101" target="_blank">here</a></p>
 		<h3>Setting up the main view</h3>
-		<p>Each view has an HTML DOM element associated with it and you can read more about why <a href="http://documentcloud.github.com/backbone/#View-el" target="_blank">here</a>.   
-		Because this is our master view we are just going to associate the view with our page body.  
+		<p>Each view has a HTML DOM element associated with it. You can read more about why <a href="http://documentcloud.github.com/backbone/#View-el" target="_blank">here</a>.   
+		   Because this is our master view we are just going to associate the view with our page body in this example.  
 		
 		</p><p> If the el(element) specified
 		does not exist, Backbone.js will attempt to create it.</p>
@@ -93,14 +93,14 @@
       Then we create our main application view by extending Backbone and passing a JSON object with our options.
       We specified "body" to be the associated element for this view.</p>
       <p>The events property is very powerful and lets us attach listeners to our views.   In the example above we have attached 
-      a click listener to our button with id "add-friend", read more about events <a href="http://documentcloud.github.com/backbone/#View-delegateEvents" target="_blank">here.</a></p>
+      a click listener to our button with id "add-friend". Read more about events <a href="http://documentcloud.github.com/backbone/#View-delegateEvents" target="_blank">here.</a></p>
       <p>After we have setup our AppView, we can just call to initiate it at anytime.</p>
      <h3>Collecting the Models</h3>
      <p>A Model in Backbone.js can represent any entity you like and in this case we want it to represent a friend.
      We can easily create friend Models but without any structure they become fairly useless to us because
      we can't iterate through them unless they are grouped together.   So Backbone.js implements the Collection class which 
-     allows us to order our models, read more <a href="http://documentcloud.github.com/backbone/#Collection" target="_blank">here</a>.</p>
-     <p>Now we get to the fun part, you can bind listeners/events to Models and Collections.   So whenever there
+     allows us to order our models. Read more <a href="http://documentcloud.github.com/backbone/#Collection" target="_blank">here</a>.</p>
+     <p>Now we get to the fun part. You can bind listeners/events to Models and Collections.   So whenever there
      are changes to the data we can call events to react accordingly.</p>
      <p>We are going to add this code to our example which lets us add a friend Model to our friend Collection.
      We will then bind a listener to create a new list element when the data has changed.</p>
@@ -147,8 +147,9 @@
 	<h3>Conclusion</h3>
 	<p>
 	I hope this helps anyone trying to pick it up.   I don't mind answering any questions that I have the ability to answer.  
-	</p>p><p>
-	Would also love to hear to some optimization tips!
+	</p><p>
+	Would also love to hear to some optimization tips! 
+	p.s.  Would love some insight into MVVM, MVC etc
 	</p>
 	</article>
 	

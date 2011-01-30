@@ -14,7 +14,7 @@
 	<style type="text/css">
 		body { font-family: 'Puritan'; }
 		#container { width: 760px; margin: auto; }
-		h1 {  font-size: 3em; text-decoration: underline; }
+		h1 {  font-size: 3em;  }
 		h3 { color: #444; }
 	</style>
 </head>
@@ -22,15 +22,21 @@
 <body>
 <section id="container">
 <h1>Thomas Davis</h1>
+<p style="margin-top: -35px; margin-left: 50px;">talk to me on <a href="http://twitter.com/neutralthoughts" target="_blank">twitter</a></p>
 
 
 	<article class="blog">
-		<h2>Backbone.js - Some tutorial name</h2>
-		<p>The official website describes Backbone.js as a	library to supply structure to Javascript heavy 
+		<h2>Backbone.js Tutorial - by noob for noobs</h2>
+		<p>The official <a href="http://documentcloud.github.com/backbone/" target="_blank">website</a> describes
+		 Backbone.js as a library to supply structure to Javascript heavy 
 		web applications.    After using Backbone.js for a week I could never see myself building any sort of
 		Javascript functionality regardless of size without using Backbone.js or alternatives.</p>
 		<p>I have decided to write a quick introduction for those trying to grasp the mechanics behind it.   I
 		  am only a beginner also and would love suggestions and tips to improve my code.</p>
+		  <p>
+		  I am also very curious to hear what you think about how MVC ties into Javascript development and 
+		  the most effective library you have used for logically organizing your Javascript.
+		  </p>
 		<h3>Understanding the Model View Controller</h3>
 		<p>I have used many frameworks which promote that they use MVC.   I don't think I have ever seen
 		the same fundamental principals implemented the same way ever.    </p>
@@ -49,20 +55,112 @@
 			&lt;html>
 			&lt;head>
 				&lt;title>I have a back bone&lt;/title>
+				&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">&lt;/script>
 				&lt;script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js">&lt;/script>
 				&lt;script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js">&lt;/script>
 			&lt;/head>
 			&lt;body>
+				&lt;button id="add-friend">Add Friend&lt;/button>
+				&lt;ul id="friends-list">
+				&lt;/ul>
 			&lt;/body>
 			&lt;/html>
 
       </pre> 
+      <p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/backbone-101/" target="_blank">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101" target="_blank">here</a></p>
+		<h3>Setting up the main view</h3>
+		<p>Each view has an HTML DOM element associated with it and you can read more about why <a href="http://documentcloud.github.com/backbone/#View-el" target="_blank">here</a>.   
+		Because this is our master view we are just going to associate the view with our page body.  
+		
+		</p><p> If the el(element) specified
+		does not exist, Backbone.js will attempt to create it.</p>
+		<pre class='brush: js'> 
+	      	$(function(){
+				window.AppView = Backbone.View.extend({
+					el: $("body"),
+					events: {
+						"click #add-friend":  "showPrompt",
+					},	
+					showPrompt: function(){
+						var friend_name = prompt("Who is your friend?");
+					}
+				});
+				var appview = new AppView
+			});
+      </pre> 
+      <p>So we just wrapped our Backbone code with jQuery to make sure the page has loaded correctly.
+      Then we create our main application view by extending Backbone and passing a json object with our options.
+      We specified "body" to be the assosciated element for this view.</p>
+      <p>The events proprety is very powerful and lets us attach listeners to our views.   In the example above we have attached 
+      a click listener to our button with id "add-friend", read more about events <a href="http://documentcloud.github.com/backbone/#View-delegateEvents" target="_blank">here.</a></p>
+      <p>After we have setup our AppView, we can just call to initiate it at anytime.</p>
+     <h3>Collecting the Models</h3>
+     <p>A Model in Backbone.js can represent any entity you like and in this case we want it to represent a friend.
+     We can easily create friend Models but without any structure they become fairly useless to us because
+     we can't iterate through them unless they are grouped together.   So Backbone.js implements the Collection class which 
+     allows us to order our models, read more <a href="http://documentcloud.github.com/backbone/#Collection" target="_blank">here</a>.</p>
+     <p>Now we get to the fun part, you can bind listeners/events to Models and Collections.   So whenever there
+     are changes to the data we can call events to react accordingly.</p>
+     <p>We are going to add this code to our example which lets us add a friend Model to our friend Collection.
+     We will then bind a listener to create a new list element when the data has changed.</p>
+     <pre class="brush: js">
+		$(function(){
+			Friend = Backbone.Model.extend({
+				//Create a model to hold friend atribute
+				name: null
+			});
+			Friends = Backbone.Collection.extend({
+				//This is our Friends collection and holds our Friend models
+				initialize: function() {
+					this.bind("add", this.addFriendLi);
+					//Listen for new additions to the collection and call a function if so
+				},
+				addFriendLi: function(model){
+					//The parameter passed is a reference to the model that was added
+					$("#friends-list").append("<li>" + model.get('name') + "</li>");
+					//Use .get to receive attributes of the model
+				}
+			});
+			AppView = Backbone.View.extend({
+				el: $("body"),
+				initialize: function(){
+					this.friends = new Friends;
+					//Create a friends collection when the view is initialized.
+				},
+				events: {
+					"click #add-friend":  "showPrompt",
+				},	
+				showPrompt: function(){
+					var friend_name = prompt("Who is your friend?");
+					var friend_model = new Friend({ name: friend_name });
+					//Add a new friend model to our friend collection
+					this.friends.add( friend_model );
+				}
+			});
+			var appview = new AppView
+		});
+		
+     </pre>
+     <h2><a href="http://thomasdavis.github.com/examples/backbone-101/" target="_blank">Demo</a></h2>
+     <h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101" target="_blank">Source</a></h2>
+	<h3>Conclusion</h3>
+	<p>
+	I hope this helps anyone trying to pick it up,   I don't mind answering any questions that I have the ability to answer.  
+	Would also love to hear to some optimization tips!
+	</p>
 	</article>
+	
 
-      
 	<script type="text/javascript">
 		SyntaxHighlighter.all()
 	</script>
+<script>
+var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
 </section>
 </body>
 </html>

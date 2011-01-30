@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Envy Labs</title>
+	<title>Thomas Davis - Blog</title>
+	<link href='http://fonts.googleapis.com/css?family=Puritan:regular,bold' rel='stylesheet' type='text/css'>
+	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shBrushJScript.css" rel="stylesheet" type="text/css" />
+	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shBrushXml.css" rel="stylesheet" type="text/css" />
+	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script>
+	<style type="text/css">
+		body { font-family: 'Puritan'; }
+		#container { width: 760px; margin: auto; }
+		h1 {  font-size: 3em; text-decoration: underline; }
+		h3 { color: #444; }
+	</style>
 </head>
 
 <body>
-<h1>Envy Labs</h1>
+<section id="container">
+<h1>Thomas Davis</h1>
+
+
+	<article class="blog">
+		<h2>Backbone.js - Some tutorial name</h2>
+		<p>The official website describes Backbone.js as a	library to supply structure to Javascript heavy 
+		web applications.    After using Backbone.js for a week I could never see myself building any sort of
+		Javascript functionality regardless of size without using Backbone.js or alternatives.</p>
+		<p>I have decided to write a quick introduction for those trying to grasp the mechanics behind it.   I
+		  am only a beginner also and would love suggestions and tips to improve my code.</p>
+		<h3>Understanding the Model View Controller</h3>
+		<p>I have used many frameworks which promote that they use MVC.   I don't think I have ever seen
+		the same fundamental principals implemented the same way ever.    </p>
+		<p>Backbone.js has 4 classes for Models, Views, Controllers and Collections.   The Models and Collections
+		class work hand in hand and when combined essentially make up the M(model) of MVC.
+		</p>
+		<p>The main concept I follow when using Backbone.js is to make Views listen for changes in the Model and react
+		accordingly.   I would bookmark the homepage <a href="http://documentcloud.github.com/backbone/" target="_blank">
+		documentation</a> and also I highly reccomend perusing the annotated <a href="http://documentcloud.github.com/backbone/docs/backbone.html" target="_blank">source</a> code.</p>
+		<h3>Getting started</h3>
+		<p>I am going to run you through a basic tutorial that should get you on the right path if you are a bit lost
+		like I was when I started.</p>
+		<p>First of all we are going to just setup a basic page and include Backbone.js and Underscore.js(a dependency of Backbone.js)</p>
+		<pre class='brush: html js'> 
+			&lt;!DOCTYPE html>
+			&lt;html>
+			&lt;head>
+				&lt;title>I have a back bone&lt;/title>
+				&lt;script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js">&lt;/script>
+				&lt;script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js">&lt;/script>
+			&lt;/head>
+			&lt;body>
+			&lt;/body>
+			&lt;/html>
+
+      </pre> 
+	</article>
+
+      
+	<script type="text/javascript">
+		SyntaxHighlighter.all()
+	</script>
+</section>
 </body>
 </html>

@@ -11,6 +11,7 @@
 	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
 	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script>
 	<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script>
+	<script src="http://ajax.cdnjs.com/ajax/plugins/jquery.social-sidebar/5.4/jquery.social-sidebar.min.js?ver=3.0.4"></script>
 	<style type="text/css">
 		body { font-family: 'Puritan'; }
 		#container { width: 760px; margin: auto; }
@@ -172,5 +173,26 @@ var idcomments_post_url;
 <script src="http://static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(66379121); }catch(err){}</script>
 <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66379121ns.gif" /></p></noscript>
+<script type="text/javascript">
+   (function ($) {
+        $('body').socialSidebar({
+            'top': '130px',
+            'twitter': {'username': 'neutralthoughts'
+            },
+            'facebook': {'image': 'http://thomasalwyndavis.com/socialsidebar/clicky.jpg','link': ''
+            },
+            'linkedin': {'link': ''
+            }	,
+            'op1': {'link': ''
+            }
+			,
+            'op2': {'image': '','link': ''
+            }
+			,
+            'op3': {'image': '','link': ''
+            }			
+        });
+   })(jQuery);
+</script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>I have a back bone</title>
+	<title>Hide your kids, hide your wife and hide your husbands</title>
 </head>
 <body>
 
@@ -29,10 +29,12 @@
 		},
 		
 		defaultAction: function( page ){
-			//Once the default action is called we want to construct a link to our restful service
-			var restfulPageUrl = this.restfulUrl + page + "page" //http://api.openkeyval.org/gangsterpage
-			//Now we have a url lets get the data
-			this.loadRestfulData( restfulPageUrl );
+            if( page ) {
+                //Once the default action is called we want to construct a link to our restful service
+                var restfulPageUrl = this.restfulUrl + page + "page" //http://api.openkeyval.org/gangsterpage
+                //Now we have a url lets get the data
+                this.loadRestfulData( restfulPageUrl );
+            }
 		},
 		animalAction: function( animal ) {
 			//Once the default action is called we want to construct a link to our restful service

@@ -40,33 +40,31 @@
 
 
 	<article class="blog">
-		<div style="width: 385px; margin: auto; margin-top: 50px; "><img src="images/backbone.png" /></div>
-		<h2>Backbone.js Tutorial - by noob for noobs</h2>
-		<p>The official <a href="http://documentcloud.github.com/backbone/" target="_blank">website</a> describes
-		 Backbone.js as a library to supply structure to Javascript heavy 
-		web applications.    After using Backbone.js for a week I could never see myself building any sort of
-		Javascript functionality regardless of size without using Backbone.js or alternatives.</p>
-		<p>I have decided to write a quick introduction for those trying to grasp the mechanics behind it.   I
-		  am only a beginner also and would love suggestions and tips to improve my code.</p>
-		  <p>
-		  I am also very curious to hear what you think about how MVC ties into Javascript development and 
-		  the most effective library you have used for logically organizing your Javascript.
-		  </p>	
-		  <p><strong>Would be great to get a discussion on MVC vs MVVM vs others etc leave comments at the bottom!</strong></p>
-		  <p><strong style="text-decoration: italic;">Also could you implement this example better in another framework?</strong></p>
-		<h3>Understanding the Model View Controller Paradigm</h3>
-		<p>I have used many frameworks which promote that they use MVC.   I don't think I have ever seen
-		the same fundamental principals implemented the same way.    </p>
-		<p>Backbone.js has 4 classes: Models, Views, Controllers and Collections.   The Models and Collections
-		class work hand in hand and when combined essentially make up the M(model) of MVC.
-		</p>
-		<p>The main concept I follow when using Backbone.js is to make Views listen for changes in the Model and react
-		accordingly.   I would recommend bookmarking the homepage <a href="http://documentcloud.github.com/backbone/" target="_blank">
-		documentation</a> and I perusing the annotated <a href="http://documentcloud.github.com/backbone/docs/backbone.html" target="_blank">source</a> code.</p>
-		<h3>Getting started</h3>
-		<p>I am going to run you through a basic tutorial that should get you on the right path if you are a bit lost
-		like I was when I started.</p>
-		<p>First of all we are going to just setup a basic page and include Backbone.js and Underscore.js(a dependency of Backbone.js)</p>
+		
+		<h2>restful ajax web app basics ( using Backbone.js lol )</h2>
+		
+		<p>Don't want to be circle jerking too hard but todays tutorial will be using Backbone.js again.
+		   After using Gmail and other apps such as Clicky for so long it made me sad to see my web apps
+		   always refreshing the page and looking chunky.</p>
+		<p>Before I continue with the tutorial heres just a few pros of using a fully ajax app with a restful interface.
+		<ul style="margin-left: 40px;">
+		<li>Less HTTP request</li>
+		<li>Minimize the size of requested pages by always requesting JSON</li>
+		<li>Lets you build ajax interfaces which are fast and responsive</li>
+		<li>Request are already JSON so if you ever need to build an API, its straight forward</li>
+		<li>Google invented #! aka the hashbang</li>
+		<li>!flash</li>
+		</ul></p>
+		<p>I was excited the first time I wrote a fully ajax app and with the advent of the google hashbang, you should be able to build your websites with pure ajax calls now also  </p>	
+		 <h3>How to implement restful ajax with Backbone.js</h3>
+		<p>Backbone.js implements two classes called Controller and History.   Using just these two classes we can construct
+		the entire backbone of our restful app.</p>
+		<p>To make a fully ajax website we need to use the hashtag, which up until this point has been used predominatly for anchor tags.
+		   Browsers don't trigger any page refreshes with hashtags and using Javascript we can detect when the # location changes.
+		   Instead of triggering the default behavior of finding an anchor, we insead load custom Javascript.</p>
+		<p>
+		Below is all the HTML we will be using today.  Also note the inclusion of underscore.js, its a depdendecy of backbone.js and brings
+		alot of power to the table.   I have simply set up four links that we are going to load</p>
 		<pre class='brush: html js'>
 			&lt;!DOCTYPE html>
 			&lt;html>
@@ -74,20 +72,27 @@
 				&lt;title>I have a back bone&lt;/title>
 			&lt;/head>
 			&lt;body>
-				&lt;button id="add-friend">Add Friend&lt;/button>
-				&lt;ul id="friends-list">
-				&lt;/ul>
-				&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">&lt;/script>
-				&lt;script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js">&lt;/script>
-				&lt;script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js">&lt;/script>
+
+			&lt;ul id="menu">
+			&lt;li>&lt;a href="#animals/dog">Dogs&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#animals/cat">cats&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#shop">Shops&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#gangster">Gangsters&lt;/a>&lt;/li>
+			&lt;/ul>
+			&lt;div id="content-pane">No content loaded&lt;/div>
+
+			&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">&lt;/script>
+			&lt;script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js">&lt;/script>
+			&lt;script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js">&lt;/script>
 			&lt;/body>
 			&lt;/html>
 
+
       </pre>
-      <p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/backbone-101/" target="_blank">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101" target="_blank">here</a></p>
-		<h3>Setting up the main view</h3>
-		<p>Each view has a HTML DOM element associated with it. You can read more about why <a href="http://documentcloud.github.com/backbone/#View-el" target="_blank">here</a>.
-		   Because this is our master view we are just going to associate the view with our page body in this example.
+      <p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/restful-app/" target="_blank">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app" target="_blank">here</a></p>
+		<h3>Setting up the controller</h3>
+		<p>Below is the documented code that will run the restful ajax app.  Note that I have included a service called openkeyval.org which is simply
+		a free service for storing key pair values.
 
 		</p><p> If the el(element) specified
 		does not exist, Backbone.js will attempt to create it.</p>

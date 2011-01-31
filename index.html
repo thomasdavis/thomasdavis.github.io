@@ -79,18 +79,18 @@
 		</p><p> If the el(element) specified
 		does not exist, Backbone.js will attempt to create it.</p>
 		<pre class='brush: js'> 
-	      	$(function(){
-				window.AppView = Backbone.View.extend({
-					el: $("body"),
-					events: {
-						"click #add-friend":  "showPrompt",
-					},	
-					showPrompt: function(){
-						var friend_name = prompt("Who is your friend?");
-					}
-				});
-				var appview = new AppView
-			});
+		  (function ($) {
+		    window.AppView = Backbone.View.extend({
+		      el: $("body"),
+		      events: {
+		        "click #add-friend":  "showPrompt",
+		      },
+		      showPrompt: function () {
+		        var friend_name = prompt("Who is your friend?");
+		      }
+		    });
+		  var appview = new AppView;
+			})(jQuery);
       </pre> 
       <p>So we just wrapped our Backbone code with jQuery to make sure the page has loaded correctly.
       Then we create our main application view by extending Backbone and passing a JSON object with our options.
@@ -108,42 +108,47 @@
      <p>We are going to add this code to our example which lets us add a friend Model to our friend Collection.
      We will then bind a listener to create a new list element when the data has changed.</p>
      <pre class="brush: js">
-	$(function(){
-		Friend = Backbone.Model.extend({
-			//Create a model to hold friend atribute
-			name: null
-		});
-		Friends = Backbone.Collection.extend({
-			//This is our Friends collection and holds our Friend models
-			initialize: function(models, options) {
-				this.bind("add", options.view.addFriendLi);
-				//Listen for new additions to the collection and call a view function if so
-			}
-		});
-		AppView = Backbone.View.extend({
-			el: $("body"),
-			initialize: function(){
-				this.friends = new Friends( null, { view: this });
-				//Create a friends collection when the view is initialized.
-				//Pass it a reference to this view to create a connection between the two
-			},
-			events: {
-				"click #add-friend":  "showPrompt",
-			},	
-			showPrompt: function(){
-				var friend_name = prompt("Who is your friend?");
-				var friend_model = new Friend({ name: friend_name });
-				//Add a new friend model to our friend collection
-				this.friends.add( friend_model );
-			},
-			addFriendLi: function(model){
-				//The parameter passed is a reference to the model that was added
-				$("#friends-list").append("<li>" + model.get('name') + "</li>");
-				//Use .get to receive attributes of the model
-			}
-		});
-		var appview = new AppView
-	});
+	(function ($) {
+	  
+	  Friend = Backbone.Model.extend({
+      //Create a model to hold friend atribute
+      name: null
+    });
+
+    Friends = Backbone.Collection.extend({
+      //This is our Friends collection and holds our Friend models
+      initialize: function (models, options) {
+        this.bind("add", options.view.addFriendLi);
+        //Listen for new additions to the collection and call a view function if so
+      }
+    });
+
+    AppView = Backbone.View.extend({
+      el: $("body"),
+      initialize: function () {
+        this.friends = new Friends( null, { view: this });
+        //Create a friends collection when the view is initialized.
+        //Pass it a reference to this view to create a connection between the two
+      },
+      events: {
+        "click #add-friend":  "showPrompt",
+      },
+      showPrompt: function () {
+        var friend_name = prompt("Who is your friend?");
+        var friend_model = new Friend({ name: friend_name });
+        //Add a new friend model to our friend collection
+        this.friends.add( friend_model );
+      },
+      addFriendLi: function (model) {
+        //The parameter passed is a reference to the model that was added
+        $("#friends-list").append("<li>" + model.get('name') + "</li>");
+        //Use .get to receive attributes of the model
+      }
+    });
+    
+    var appview = new AppView;
+    
+	})(jQuery);
 		
      </pre>
      <h2><a href="http://thomasdavis.github.com/examples/backbone-101/" target="_blank">Demo</a></h2>
@@ -155,8 +160,8 @@
 	Would also love to hear to some optimization tips! 
 	p.s.  Would love some insight into MVVM, MVC etc
 	</p>
-	<p>Update: 	Changed the code to append the elements from the view and not the Model/Collection.   The <a href="http://news.ycombinator.com/item?id=2158011" target="_blank">problem</a> was described on ycombinator by emehrkay</p>
-	<p>Update 2: A user called <a href="https://github.com/svnlto" target="_blank">svnlto</a> had a pull request to fix up the example code to imlpement better coding practises, he was spot on so I merged his request into the master branch.  You can view the pull request <a href="https://github.com/thomasdavis/thomasdavis.github.com/pull/1" target="_blank">here</a>.</p>
+	<p>Update: 	Changed the code to append the elements from the view and not the Model/Collection. The <a href="http://news.ycombinator.com/item?id=2158011" target="_blank">problem</a> was described on ycombinator by emehrkay</p>
+	<p>Update 2: A user called <a href="http://twitter.com/svenlito" target="_blank">svnlto</a> had a pull request to fix up the example code to implement better coding practises, he was spot on so I merged his request into the master branch. You can view the pull request <a href="https://github.com/thomasdavis/thomasdavis.github.com/pull/1" target="_blank">here</a>.</p>
     <span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'bdee6d8c-ed9a-4867-90f6-011704c29ee3'});</script>	</article>
 	
@@ -176,25 +181,25 @@ var idcomments_post_url;
 <script type="text/javascript">try{ clicky.init(66379121); }catch(err){}</script>
 <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66379121ns.gif" /></p></noscript>
 <script type="text/javascript">
-   (function ($) {
-        $('body').socialSidebar({
-            'top': '130px',
-            'twitter': {'username': 'neutralthoughts'
-            },
-            'facebook': {'image': 'http://thomasalwyndavis.com/socialsidebar/clicky.jpg','link': ''
-            },
-            'linkedin': {'link': ''
-            }	,
-            'op1': {'link': ''
-            }
-			,
-            'op2': {'image': '','link': ''
-            }
-			,
-            'op3': {'image': '','link': ''
-            }			
-        });
-   })(jQuery);
+ (function ($) {
+      $('body').socialSidebar({
+          'top': '130px',
+          'twitter': {'username': 'neutralthoughts'
+          },
+          'facebook': {'image': 'http://thomasalwyndavis.com/socialsidebar/clicky.jpg','link': ''
+          },
+          'linkedin': {'link': ''
+          }	,
+          'op1': {'link': ''
+          }
+		,
+          'op2': {'image': '','link': ''
+          }
+		,
+          'op3': {'image': '','link': ''
+          }			
+      });
+ })(jQuery);
 </script>
 </body>
 </html>

@@ -54,31 +54,31 @@
 		<p>I am going to run you through a basic tutorial that should get you on the right path if you are a bit lost
 		like I was when I started.</p>
 		<p>First of all we are going to just setup a basic page and include Backbone.js and Underscore.js(a dependency of Backbone.js)</p>
-		<pre class='brush: html js'> 
+		<pre class='brush: html js'>
 			&lt;!DOCTYPE html>
 			&lt;html>
 			&lt;head>
 				&lt;title>I have a back bone&lt;/title>
-				&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">&lt;/script>
-				&lt;script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js">&lt;/script>
-				&lt;script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js">&lt;/script>
 			&lt;/head>
 			&lt;body>
 				&lt;button id="add-friend">Add Friend&lt;/button>
 				&lt;ul id="friends-list">
 				&lt;/ul>
+				&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">&lt;/script>
+				&lt;script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js">&lt;/script>
+				&lt;script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js">&lt;/script>
 			&lt;/body>
 			&lt;/html>
 
-      </pre> 
+      </pre>
       <p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/backbone-101/" target="_blank">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101" target="_blank">here</a></p>
 		<h3>Setting up the main view</h3>
-		<p>Each view has a HTML DOM element associated with it. You can read more about why <a href="http://documentcloud.github.com/backbone/#View-el" target="_blank">here</a>.   
-		   Because this is our master view we are just going to associate the view with our page body in this example.  
-		
+		<p>Each view has a HTML DOM element associated with it. You can read more about why <a href="http://documentcloud.github.com/backbone/#View-el" target="_blank">here</a>.
+		   Because this is our master view we are just going to associate the view with our page body in this example.
+
 		</p><p> If the el(element) specified
 		does not exist, Backbone.js will attempt to create it.</p>
-		<pre class='brush: js'> 
+		<pre class='brush: js'>
 		  (function ($) {
 		    window.AppView = Backbone.View.extend({
 		      el: $("body"),

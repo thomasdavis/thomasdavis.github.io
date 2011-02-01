@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Thomas Davis - Blog</title>
+	<title>restful ajax web app basics ( mimic gmail with backbone.js, SOA, TSA )</title>
 	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
 	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shBrushJScript.css" rel="stylesheet" type="text/css" />
 	<link href="http://alexgorbatchev.com/pub/sh/current/styles/shBrushXml.css" rel="stylesheet" type="text/css" />
@@ -40,36 +40,39 @@
 
 
 	<article class="blog">
-		
-		<h2>restful ajax web app basics ( using Backbone.js lol )</h2>
-		
-		<p>Don't want to be circle jerking too hard but todays tutorial will be using Backbone.js again.
-		   After using Gmail and other apps such as Clicky for so long it made me sad to see my web apps
-		   always refreshing the page and looking chunky.</p>
-		<p>Before I continue with the tutorial heres just a few pros of using a fully ajax app with a restful interface.
+		<div style="width: 150px; margin: auto; margin-top: 50px; "><img style="width: 150px;" src="images/ajax.jpg" /></div>
+		<h2>restful ajax web app basics ( mimic gmail with backbone.js, SOA, TSA )</h2>
+		<p>The goal is to build a small example of Service Oriented Architecture (SOA) and Thin Servier Architecture (TSA). We want our server to only produce raw data and never send HTML! ( We're using REST not SOAP, no fighting).</p>
+		<p>This is a quick guide to get you started on building a one page web app that uses hashtag events and history to allow users to navigate your site without reloading the page ever.   Don't want to be <strong>circle</strong> jerking too hard but todays tutorial will be using Backbone.js again.
+		  </p>
+     <h2 style="margin-left: 15px;"><a href="http://thomasdavis.github.com/examples/restful-app/" target="_blank">Demo</a></h2>
+     <h2 style="margin-left: 15px;"><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app" target="_blank">Source</a></h2>
+        <h3>Benefits of TSA</h3>
+		<p>Before I continue with the tutorial here are just a few pros I can think of for using a fully ajax app with a restful interface.
 		<ul style="margin-left: 40px;">
 		<li>Less HTTP request</li>
 		<li>Minimize the size of requested pages by always requesting JSON</li>
 		<li>Lets you build ajax interfaces which are fast and responsive</li>
-		<li>Request are already JSON so if you ever need to build an API, its straight forward</li>
-		<li>Google invented #! aka the hashbang</li>
+		<li>Request are already JSON so if you ever need to build an API, it's straight forward</li>
+		<li>Google invented #! aka the hashbang for SEO</li>
 		<li>!flash</li>
 		</ul></p>
-		<p>I was excited the first time I wrote a fully ajax app and with the advent of the google hashbang, you should be able to build your websites with pure ajax calls now also  </p>	
-		 <h3>How to implement restful ajax with Backbone.js</h3>
+		<p>I was excited the first time I wrote a fully ajax app and I hope that some of you can feel the orgasmic feeling of dynamically loaded content.   With the advent of the google <a href="http://www.seomoz.org/blog/how-to-allow-google-to-crawl-ajax-content" target="_blank">hashbang</a>, you should be able to also build your websites/blogs with pure ajax calls now while still still reaping the benefits of google rankings.  </p>	
+        <p>Possibly one of the funnest parts is choosing an ajax loading graphic, I always use this <a href="http://ajaxload.info/" target="_blank">site</a>.</p>
+         <h3>Understanding the hash tag</h3>
 		<p>Backbone.js implements two classes called Controller and History.   Using just these two classes we can construct
 		the entire backbone of our restful app.</p>
 		<p>To make a fully ajax website we need to use the hashtag, which up until this point has been used predominatly for anchor tags.
-		   Browsers don't trigger any page refreshes with hashtags and using Javascript we can detect when the # location changes.
-		   Instead of triggering the default behavior of finding an anchor, we insead load custom Javascript.</p>
+		   Browsers don't trigger any page refreshes with hashtags so using Javascript we can detect when the # location changes.
+		   Instead of triggering the default behavior of finding an anchor, we instead load custom Javascript.</p>
 		<p>
 		Below is all the HTML we will be using today.  Also note the inclusion of underscore.js, its a depdendecy of backbone.js and brings
-		alot of power to the table.   I have simply set up four links that we are going to load</p>
+		alot of power to the table.   I have simply set up four links that shall react accordingly and hopefully load data into our content pane div.</p>
 		<pre class='brush: html js'>
 			&lt;!DOCTYPE html>
 			&lt;html>
 			&lt;head>
-				&lt;title>I have a back bone&lt;/title>
+				&lt;title>Hide your kids, hide your wife and hide your husbands&lt;/title>
 			&lt;/head>
 			&lt;body>
 
@@ -90,67 +93,73 @@
 
       </pre>
       <p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/restful-app/" target="_blank">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app" target="_blank">here</a></p>
-		<h3>Setting up the controller</h3>
-		<p>Below is the documented code that will run the restful ajax app.  Note that I have included a service called openkeyval.org which is simply
-		a free service for storing key pair values.
+		<h3>Controlling the Controller</h3>
+		<p>Below is the documented code that will run the restful ajax app.  Note that I have included a service called <a href="http://openkeyval.org" target="_blank">openkeyval.org</a> which is simply
+		a free service for storing key pair values.  It is a great example of <a href="http://www.slideshare.net/spacemonkeylabs/thin-server-architecture" target="_blank">TSA</a> and saves me setting up a nginx/reddis server.
 
-		</p><p> If the el(element) specified
-		does not exist, Backbone.js will attempt to create it.</p>
-		<pre class='brush: js'>
+		</p><p>Hopefully the code below should be simply enough to understand.   Most of you who have used a server side framework have probably experienced using Routes.  Backbone.js implements 
+        routes and you should quickly read the documentation <a href="http://documentcloud.github.com/backbone/#Controller-routes" target="_blank">here</a>.   In the example I set up two types of routes
+        one to catch specific urls and a standard catch all urls route.   Take note of the colon and asterisk, the appended string gets turned into a variable for convenient usage in your call back functions.
+        </p>
+        <p>Using jQuery ajax call we specify the data type as "jsonp" to circumvent the foreign cross site policy.</p>
+   	<pre class='brush: js'>
 			(function ($) {
-				
-				var restfulApp = Backbone.Controller.extend({
-					restfulUrl: "http://api.openkeyval.org/", //This is a free service to store key pair values
-					
-					//Routes tell the app what to do 
-					routes: {
-					"animals/:animal":          "animalAction",  //This matches app/animals/* and assigns * to a variable called "animal"
-					"*page":                 	"defaultAction", //This simply matches any urls that weren't caught above and assigns it to "page"
-					},
-					
-					defaultAction: function( page ){
-						//Once the default action is called we want to construct a link to our restful service
-						var restfulPageUrl = this.restfulUrl + page + "page" //http://api.openkeyval.org/gangsterpage
-						//Now we have a url lets get the data
-						this.loadRestfulData( restfulPageUrl );
-					},
-					animalAction: function( animal ) {
-						//Once the default action is called we want to construct a link to our restful service
-						var restfulPageUrl = this.restfulUrl + animal + "page" //http://api.openkeyval.org/dogpage
-						//Now we have a url lets get the data
-						this.loadRestfulData( restfulPageUrl );
-					},
-					loadRestfulData: function( pageUrl ){
-						//Set the content pane to a loading screen
-						$("#content-pane").text( "loading data..." );
-						//Load the data in using jQuerys ajax call
-						$.ajax({
-							url: pageUrl,
-							dataType: "jsonp",
-							success: function(data){
-								//Once we receive the data, set it to the content pane.
-								$("#content-pane").text( data );
-							}
-						});	
-					}
+                
+                var restfulApp = Backbone.Controller.extend({
+                    restfulUrl: "http://api.openkeyval.org/", //This is a free service to store key pair values
+                    
+                    //Routes tell the app what to do 
+                    routes: {
+                    "animals/:animal":          "animalAction",  //This matches app/animals/* and assigns * to a variable called "animal"
+                    "*page":                 	"defaultAction", //This simply matches any urls that weren't caught above and assigns it to "page"
+                    },
+                    
+                    defaultAction: function( page ){
+                        if( page ) {
+                            //Once the default action is called we want to construct a link to our restful service
+                            var restfulPageUrl = this.restfulUrl + page + "page" //http://api.openkeyval.org/gangsterpage
+                            //Now we have a url lets get the data
+                            this.loadRestfulData( restfulPageUrl );
+                        }
+                    },
+                    animalAction: function( animal ) {
+                        //Once the default action is called we want to construct a link to our restful service
+                        var restfulPageUrl = this.restfulUrl + animal + "page" //http://api.openkeyval.org/dogpage
+                        //Now we have a url lets get the data
+                        this.loadRestfulData( restfulPageUrl );
+                    },
+                    loadRestfulData: function( pageUrl ){
+                        //Set the content pane to a loading screen
+                        $("#content-pane").text( "loading data..." );
+                        //Load the data in using jQuerys ajax call
+                        $.ajax({
+                            url: pageUrl,
+                            dataType: "jsonp",
+                            success: function(data){
+                                //Once we receive the data, set it to the content pane.
+                                $("#content-pane").text( data );
+                            }
+                        });	
+                    }
 
-				});
-				
 				var app = new restfulApp;
 				//Initiate a new history and controller class
 				Backbone.emulateHTTP = true;
 				Backbone.emulateJSON = true 
 				Backbone.history.start();
 
-			})(jQuery);
+            })(jQuery);
       </pre> 
      
-     <h2><a href="http://thomasdavis.github.com/examples/restful-app/" target="_blank">Demo</a></h2>
-     <h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app" target="_blank">Source</a></h2>
+     <h2 style="margin-left: 15px;"><a href="http://thomasdavis.github.com/examples/restful-app/" target="_blank">Demo</a></h2>
+     <h2 style="margin-left: 15px;"><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app" target="_blank">Source</a></h2>
 	<h3>Conclusion</h3>
 	<p>
-	Tutorial not finished
+        Building fully ajax web apps/sites has never been easier.   I cannot think of any reasons not to and I personally love the feel of a responsive non refreshing page.   If you have built a hash tag web app or site before I'd love to see it so post it below.
 	</p>
+         <p>If you see any errors or bad practises please do a pull request or simply leave a comment.</p>
+        <p>For the last example tutorial I wrote many members of the community proposed solutions in other JS frameworks.  I believe this is very important as the web starts releasing more and more Javascript frameworks.</p>
+	
 	  <span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'bdee6d8c-ed9a-4867-90f6-011704c29ee3'});</script>	</article>
 	

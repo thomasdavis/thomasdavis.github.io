@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>jQuery - create your own deferred object with parameters</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+        <link rel="stylesheet" media="all" href=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+    </head>
+
+    <body lang="en">
+    <script>
+        function myFunc(){
+            return $.Deferred(function( deferred_obj ){
+                $("body").css("background", "#ff0000");
+                deferred_obj.resolve( "these", "are", "my", "parameters" );
+            }).promise();
+        }
+         
+        $.when( myFunc() )
+            .then(function(p1, p2, p3, p4){
+                console.log( p1 + p2 + p3 + p4);
+        });
+    </script>
+    </body>
+
+</html>

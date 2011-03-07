@@ -110,7 +110,8 @@ $('#poplytics').html(res.responseText);
                 $.when( findAutobot )
                 .then( function(){ (function(){
                     alert("Megatron: Fire the " + this.weapon + "!!!#!");
-                }).apply(this) }) ;
+                }).apply(this) }.apply(this)) ;
+                // Just keep applying this, depending on how many levels of scope
             }
         }
             

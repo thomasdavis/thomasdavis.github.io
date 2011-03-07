@@ -82,14 +82,6 @@ $('#poplytics').html(res.responseText);
 		<pre class='brush: js'>
         
         
-       // A light weight bind function which is used for passing "this"
-        Function.prototype.bind = function(context) { 
-            var fn = this, 
-            args = Array.prototype.slice.call(arguments, 1); 
-            return function() { 
-                return fn.apply(context, args); 
-            }; 
-        }; 
         
         
         // Below is a simple function to find our autobots, 
@@ -115,17 +107,17 @@ $('#poplytics').html(res.responseText);
         
         // Noob_bots weapon would have failed(undefined) because when
         // you create anonymous functions the scope of "this"
-        // changes to the function.   So we use .bind(this) at  
-        // the end of our anonymous function to pass "this"
+        // changes to the function.   So we use $.proxy(function, this) 
         megatron = {
             weapon: "laser",
             kill: function(){
                 // Megatron has direct access to his weapon systems
                 //  because we have called .bind(this)
                 $.when( findAutobot )
-                .then( function(){
-                    alert("Megatron: Fire the " + this.weapon + "!!!#!");
-                }.bind(this) ) ;
+                .then( $.proxy( function(){
+                        alert("Megatron: Fire the " + this.weapon + "!!!#!");
+                    }, this);
+                })
             }
         }
             

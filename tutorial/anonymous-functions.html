@@ -77,6 +77,17 @@ $('#poplytics').html(res.responseText);
              <h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/" target="_blank">Demo</a></h2>
      <h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions" target="_blank">Source</a></h2>
 		<pre class='brush: js'>
+        
+        
+       // A light weight bind function which is used for passing "this"
+        Function.prototype.bind = function(o){
+            var fn = this;
+            return function(){
+                return fn.apply(o, arguments);
+            };
+        };
+        
+        
         // Below is a simple function to find our autobots, 
         // just used for testing purposes
         function findAutobot(){
@@ -100,22 +111,22 @@ $('#poplytics').html(res.responseText);
         
         // Noob_bots weapon would have failed(undefined) because when
         // you create anonymous functions the scope of "this"
-        // changes to the function.   So we use .apply(this) at  
+        // changes to the function.   So we use .bind(this) at  
         // the end of our anonymous function to pass "this"
         megatron = {
             weapon: "laser",
             kill: function(){
                 // Megatron has direct access to his weapon systems
-                //  because we have called .apply(this)
+                //  because we have called .bind(this)
                 $.when( findAutobot )
                 .then( function(){
                     alert("Megatron: Fire the " + this.weapon + "!!!#!");
-                }.apply(this) ) ;
+                }.bind(this) ) ;
             }
         }
             
-        noob_bot.kill(); // Fire the undefined!!!
-        megatron.kill(); // Fire the laser !!!
+        noob_bot.kill();
+        megatron.kill();
 
       </pre>
       

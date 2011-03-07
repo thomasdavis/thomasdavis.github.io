@@ -13,18 +13,30 @@
     <body lang="en">
     Gday mate!
     <script>
-    
-        // Below is a simple function to find our autobots, just used for testing purposes
+        
+        // A light weight bind function which is used for passing "this"
+        Function.prototype.bind = function(o){
+            var fn = this;
+            return function(){
+                return fn.apply(o, arguments);
+            };
+        };
+        
+        
+        // Below is a simple function to find our autobots, 
+        // just used for testing purposes
         function findAutobot(){
             // Locate the autobots!
             return true;
         }
         
-        // noob_bot is an example of what happens when you don't pass this to your anonymous functions
+        // noob_bot is an example of what happens when you 
+        // don't pass this to your anonymous functions
         noob_bot = {
             weapon: "laser",
             kill: function(){
-                // In the then statement we have declared an anonymous function and we want to access noob_bots properties
+                // In the then statement we have declared an 
+                // anonymous function and we want to access noob_bots properties
                 $.when( findAutobot )
                 .then( function(){
                     alert("Noob_bot: Fire the " + this.weapon + "!!!#!");
@@ -32,16 +44,19 @@
             }
         }
         
-        // Noob_bots weapon would have failed(undefined) because when you create anonymous functions the scope of "this"
-        // changes to the function.   So we use .apply(this) at the end of our anonymous function to pass "this"
+        // Noob_bots weapon would have failed(undefined) because when
+        // you create anonymous functions the scope of "this"
+        // changes to the function.   So we use .bind(this) at  
+        // the end of our anonymous function to pass "this"
         megatron = {
             weapon: "laser",
             kill: function(){
-                // Megatron has direct access to his weapon systems because we have called .apply(this)
+                // Megatron has direct access to his weapon systems
+                //  because we have called .bind(this)
                 $.when( findAutobot )
                 .then( function(){
                     alert("Megatron: Fire the " + this.weapon + "!!!#!");
-                }.apply(this) ) ;
+                }.bind(this) ) ;
             }
         }
             

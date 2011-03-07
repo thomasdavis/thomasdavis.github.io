@@ -108,9 +108,9 @@ $('#poplytics').html(res.responseText);
                 // Megatron has direct access to his weapon systems
                 //  because we have called .apply(this)
                 $.when( findAutobot )
-                .then( function(){
+                .then( function(){ (function(){
                     alert("Megatron: Fire the " + this.weapon + "!!!#!");
-                }.apply(this));
+                }).apply(this) }) ;
             }
         }
             

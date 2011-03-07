@@ -65,6 +65,8 @@ $('#poplytics').html(res.responseText);
 	<article class="blog">
 		<div style="width: 385px; margin: auto; margin-top: 50px; "><img src="images/meagtron.jpg" /></div>
 		<h2>javascript - pass "this" to your anonymous functions</h2>
+        <p><i>Update: The initial solution was wrong and I tricked my self into thinking it was working through something I was working on at the time.  Sean and Joel have clarified in the comments
+        as to why it was wrong.   I took down the hackernews post as it was getting far too much traffic for a wrong solution. Thanks guys!</i></p>
 		<p>Anonymous functions in javascript are extremely powerful and if you don't understand them fully just yet I would highly recommend learning asap.   A great guide can be found
         <a href="http://helephant.com/2008/08/javascript-anonymous-functions/" target="_blank">here</a>.   The problem with anonymous functions is that when declared the value of "this" changes
         depending on the situation and generally points to the functions scope.   <br /><br />This is generally not a desired effect and can cause people to use globals and other funky methods of accessing

@@ -15,12 +15,13 @@
     <script>
         
         // A light weight bind function which is used for passing "this"
-        Function.prototype.bind = function(o){
-            var fn = this;
-            return function(){
-                return fn.apply(o, arguments);
-            };
-        };
+        Function.prototype.bind = function(context) { 
+            var fn = this, 
+            args = Array.prototype.slice.call(arguments, 1); 
+            return function() { 
+                return fn.apply(context, args); 
+            }; 
+        }; 
         
         
         // Below is a simple function to find our autobots, 

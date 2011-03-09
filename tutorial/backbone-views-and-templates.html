@@ -80,6 +80,10 @@ $('#poplytics').html(res.responseText);
 		app is cached and distrubuted through <a href="http://en.wikipedia.org/wiki/Content_delivery_network" target="_blank">edge locations</a>
 		 which increases the speed the site is served and also saves us money on bandwidth.
 		</p>
+		<h3>passing parent objects to deferred objects</h3>
+		<p>in the example I needed to access the parent object which contains a $.then and $.when. To get the parent object (this) into
+		the anonymous $.when function I simply used jQuery.proxy(func, this).  Has anyone else been experimenting with this and is there
+		an easier way to do it?</p>
         <p>p.s. the picture is from search for backbone in google images, was too funky to not share =)</p>
         <p>p.s.s everytime you tweet a kitten dies</p>
     <span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span>

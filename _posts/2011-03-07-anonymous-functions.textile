@@ -24,7 +24,9 @@ This step is quite easy and I have used a famous alien robot for the example.   
 output is for the robot to fire "this.weapon" but as you see in the first example he cannot access his properties which are returned as "undefined".
 
 h2. "Demo":http://thomasdavis.github.com/examples/anonymous-functions/
-h2. "Source":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
+    "Source":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
+
+
 
 {% highlight javascript %}
 
@@ -73,8 +75,10 @@ megatron.kill();
 
 {% endhighlight %}
 
+
+
 h2. "Demo":http://thomasdavis.github.com/examples/anonymous-functions/
-h2. "Source":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
+    "Source":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
 
 h3. Conclusion
 
@@ -87,6 +91,7 @@ p. Just posting a few solutions posted by others below.
 
 p. From sisk on hackernews
 "http://news.ycombinator.com/item?id=2296064":http://news.ycombinator.com/item?id=2296064
+
 {% highlight javascript %}
 
 setTimeout(
@@ -94,6 +99,7 @@ setTimeout(
     return function(){scope.fire();};
 })(this), 500
 );
+
 {% endhighlight %}
 
 p. sisk : The short explanation is you return a function from an immediately-

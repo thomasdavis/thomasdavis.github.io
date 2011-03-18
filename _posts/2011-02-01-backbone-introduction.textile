@@ -144,7 +144,8 @@ p. Would also love to hear to some optimization tips!
     p.s.  Would love some insight into MVVM, MVC etc
 
 p. Update: 	Changed the code to append the elements from the view and not the Model/Collection. The "problem":http://news.ycombinator.com/item?id=2158011 was described on ycombinator by emehrkay
-p. Update 2: A user called <a href="http://twitter.com/svenlito" target="_blank">svnlto</a> had a pull request to fix up the example code to implement better coding practises, he was spot on so I merged his request into the master branch. You can view the pull request <a href="https://github.com/thomasdavis/thomasdavis.github.com/pull/1" target="_blank">here</a>.
+
+ Update 2: A user called <a href="http://twitter.com/svenlito" target="_blank">svnlto</a> had a pull request to fix up the example code to implement better coding practises, he was spot on so I merged his request into the master branch. You can view the pull request <a href="https://github.com/thomasdavis/thomasdavis.github.com/pull/1" target="_blank">here</a>.
 <span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'bdee6d8c-ed9a-4867-90f6-011704c29ee3'});</script>	</article>
 
@@ -154,7 +155,7 @@ SyntaxHighlighter.all()
 </script>
 <script>
 var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id;
+var idcomments_post_id = "backbone";
 var idcomments_post_url;
 </script>
 <span id="IDCommentsPostTitle" style="display:none"></span>

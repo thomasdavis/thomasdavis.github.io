@@ -5,20 +5,26 @@ title: javascript - pass "this" to your anonymous functions
 
 
     h2. javascript - pass "this" to your anonymous functions
-    <p><i>Update: The initial solution was wrong and I tricked my self into thinking it was working through something I was working on at the time.  Sean and Joel have clarified in the comments
-    as to why it was wrong.   I took down the hackernews post as it was getting far too much traffic for a wrong solution. Thanks guys! <br /><br />There is now a working solution
-    (unchecked by a professional lol) and would undelete the hackernews post so others could see the useful comments but I am unable to.</i></p>
-    <p>Anonymous functions in javascript are extremely powerful and if you don't understand them fully just yet I would highly recommend learning asap.   A great guide can be found
+    
+    Update: The initial solution was wrong and I tricked my self into thinking it was working through something I was working on at the time.  Sean and Joel have clarified in the comments
+    as to why it was wrong.   I took down the hackernews post as it was getting far too much traffic for a wrong solution. Thanks guys! 
+    
+    There is now a working solution
+    (unchecked by a professional lol) and would undelete the hackernews post so others could see the useful comments but I am unable to.
+    
+    Anonymous functions in javascript are extremely powerful and if you don't understand them fully just yet I would highly recommend learning asap.   A great guide can be found
     <a href="http://helephant.com/2008/08/javascript-anonymous-functions/" target="_blank">here</a>.   The problem with anonymous functions is that when declared the value of "this" changes
     depending on the situation and generally points to the functions scope.   <br /><br />This is generally not a desired effect and can cause people to use globals and other funky methods of accessing
-    parent objects in anonymous functions. Below I will show you a simple way to access the parent object.   Always remember objects in Javascript are passed by reference!</p>
+    parent objects in anonymous functions. Below I will show you a simple way to access the parent object.   Always remember objects in Javascript are passed by reference!
     
 
-    <h3>Passing "this" to the anonymous function</h3>
-    <p>This step is quite easy and I have used a famous alien robot for the example.   The robot wants to access his main weapon system from one of methods.  So the expected
-    output is for the robot to fire "this.weapon" but as you see in the first example he cannot access his properties which are returned as "undefined".</p>
-         <h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/" target="_blank">Demo</a></h2>
- <h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions" target="_blank">Source</a></h2>
+    h3. Passing "this" to the anonymous function
+    
+    This step is quite easy and I have used a famous alien robot for the example.   The robot wants to access his main weapon system from one of methods.  So the expected
+    output is for the robot to fire "this.weapon" but as you see in the first example he cannot access his properties which are returned as "undefined".
+    
+    h2. link text(Demo):http://thomasdavis.github.com/examples/anonymous-functions/
+    h2. link text(Source):https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
     
     {% highlight javascript %}
     

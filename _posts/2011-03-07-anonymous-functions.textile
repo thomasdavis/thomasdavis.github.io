@@ -23,8 +23,8 @@ h3. Passing "this" to the anonymous function
 This step is quite easy and I have used a famous alien robot for the example.   The robot wants to access his main weapon system from one of methods.  So the expected
 output is for the robot to fire "this.weapon" but as you see in the first example he cannot access his properties which are returned as "undefined".
 
-h2. link text(Demo):http://thomasdavis.github.com/examples/anonymous-functions/
-h2. link text(Source):https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
+h2. "link text(Demo)":http://thomasdavis.github.com/examples/anonymous-functions/
+h2. "link text(Source)":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
 
 {% highlight javascript %}
 

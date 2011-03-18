@@ -23,8 +23,8 @@ h3. Passing "this" to the anonymous function
 This step is quite easy and I have used a famous alien robot for the example.   The robot wants to access his main weapon system from one of methods.  So the expected
 output is for the robot to fire "this.weapon" but as you see in the first example he cannot access his properties which are returned as "undefined".
 
-h2. "link text(Demo)":http://thomasdavis.github.com/examples/anonymous-functions/
-h2. "link text(Source)":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
+h2. "Demo":http://thomasdavis.github.com/examples/anonymous-functions/
+h2. "Source":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
 
 {% highlight javascript %}
 
@@ -73,32 +73,35 @@ megatron.kill();
 
 {% endhighlight %}
 
-<h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/" target="_blank">Demo</a></h2>
-<h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions" target="_blank">Source</a></h2>
-<h3>Conclusion</h3>
-<p>There are many other ways of passing "this" to an anonymous function and if you have any better suggestions I welcome you to post them.   Hopefully this tutorial has been helpful to you!  
-Fork me on github, using the link in the top left.</p>
-<br />
-<h3>Other implementations</h3>
-<p>Just posting a few solutions posted by others below.</p>
-<p>From sisk on hackernews<br />
-<a href="http://news.ycombinator.com/item?id=2296064" target="_blank">http://news.ycombinator.com/item?id=2296064</a></p>
-<pre class='brush: js'>
+h2. "Demo":http://thomasdavis.github.com/examples/anonymous-functions/
+h2. "Source":https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions
+
+h3. Conclusion
+
+p. There are many other ways of passing "this" to an anonymous function and if you have any better suggestions I welcome you to post them.   Hopefully this tutorial has been helpful to you!  
+Fork me on github, using the link in the top left.
+
+h3. Other implementations
+
+p. Just posting a few solutions posted by others below.
+
+p. From sisk on hackernews
+"http://news.ycombinator.com/item?id=2296064":http://news.ycombinator.com/item?id=2296064
+{% highlight javascript %}
 
 setTimeout(
 (function(scope){
     return function(){scope.fire();};
 })(this), 500
 );
-</pre>
-<p>sisk : The short explanation is you return a function from an immediately-
+{% endhighlight %}
+
+p. sisk : The short explanation is you return a function from an immediately-
 executing anonymous function that takes the current scope as a parameter.
-</p>
+
 
 <span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'bdee6d8c-ed9a-4867-90f6-011704c29ee3'});</script>	</article>
-
-
 <script type="text/javascript">
 SyntaxHighlighter.all()
 </script>

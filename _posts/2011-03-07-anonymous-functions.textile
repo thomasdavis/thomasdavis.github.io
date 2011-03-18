@@ -19,7 +19,8 @@ title: javascript - pass "this" to your anonymous functions
     output is for the robot to fire "this.weapon" but as you see in the first example he cannot access his properties which are returned as "undefined".</p>
          <h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/" target="_blank">Demo</a></h2>
  <h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions" target="_blank">Source</a></h2>
-    <pre class='brush: js'>
+    
+    {% highlight javascript %}
     
     
     
@@ -64,7 +65,7 @@ title: javascript - pass "this" to your anonymous functions
     noob_bot.kill();
     megatron.kill();
 
-  </pre>
+  {% endhighlight %}
   
  <h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/" target="_blank">Demo</a></h2>
  <h2><a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions" target="_blank">Source</a></h2>

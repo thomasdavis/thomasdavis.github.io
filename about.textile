@@ -2,11 +2,13 @@
 layout: default
 title: Thomas Davis - About me
 ---
-* co-founder of a boot strapped startup in Australia, "protosal.com":http://protosal.com
+* co-founder of "protosal.com":http://protosal.com
 * co-founder of "cdnjs.com":http://cdnjs.com
-* founder of "BackboneTutorials.com":http://backbonetutorials.com
+* founder of "backbonetutorials.com":http://backbonetutorials.com
 * 21 year old who lives in Cairns, Australia
 * currently single, which one of you ladies is keen?
 * currently in love with all things javascript(backbone.js, node.js and couchdb)
 * I am quite desperate for more twitter friends to make up for the lack of real life friends
-* @neutralthoughts, word
+* "@neutralthoughts":http://twitter.com/neutralthoughts, word
+
+!https://si1.twimg.com/profile_images/1345879680/download__3_.jpg!

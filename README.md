@@ -1,7 +1,20 @@
-nearly finished a bootstrapped startup and it's using the coolest technologies, node.js and couch.
+Looking for feedback on my latest startup Protosal(http://protosal.com) any and all would be great!
 
-launching very soon and it would be in your best interest to sign up for a notification for its release
+**Contact:**
 
-http://protosal.com
+*   \#cdnjs on freenode
+*   @neutralthoughts on twitter
+*   thomasalwyndavis@gmail.com
 
-hey, message me
+**Projects:**
+
+*   Javascript Library CDN - http://cdnjs.com
+*   Proposal Generation Start up - http://protosal.com
+*   Backbone.js Tutorials - http://backbonetutorials.com
+*   Technical Blog - http://thomasdavis.github.com
+*   Github Account - https://github.com/thomasdavis
+*   Freelance Blog - http://thomasalwyndavis.com
+*   Quora - http://www.quora.com/Thomas-Davis
+*   StackOverflow - http://stackoverflow.com/users/580675/thomas-davis
+
+Love you mum!

@@ -33,6 +33,8 @@ p. A practical solution could be to make a much more conscious effort when consu
 _I would love to hear what you have to say on the subject!_
 
 Update: s2r2 from hacker news posted a link to an actual study and if you enjoyed this post, you will definitely enjoy "this":http://consc.net/papers/extended.html
+
+Update 2: For anyone who doesn't have enough time to read the above, xkcd made a joke out of this "lol":http://xkcd.com/903/
 <script>
 var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
 var idcomments_post_id = "internetmemory";

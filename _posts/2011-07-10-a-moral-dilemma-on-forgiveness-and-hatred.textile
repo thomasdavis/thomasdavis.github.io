@@ -1,0 +1,24 @@
+---
+layout: post
+title: A Moral Dilemma On Forgiveness and Hatred
+---
+
+h2. A Moral Dilemma On Forgiveness and Hatred
+
+p. On Forgiveness and Hatred (and most everything else I suppose) my mind follows a dual path. On one hand I separate Action from Doer and can reason thus: I hate the Act of Murder but not _that_ Murderer. In examples of Personal Hatred (possibly a too-strong word – Aversion is more on the money) I reason that it is not person A that I 'hate' but simply his actions (many or all of them). 
+
+On the other hand that sounds a little idealistic and a little like saying I don't hate person A but simply what he Is (his actions...). 
+
+When it comes to Forgiveness then I follow a strict All-Forgiving policy blaming no man for his actions ( being without 'free will' and other nonsense).  But this is again dependant on idealistic abstraction which (being a strict materialist) I am generally opposed to.    
+ 
+_Is there anything I'm missing?_
+
+
+<script>
+var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
+var idcomments_post_id = "forgivenessandhatred";
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+</div>

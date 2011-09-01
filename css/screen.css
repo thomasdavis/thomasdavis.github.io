@@ -278,3 +278,5 @@ hr { margin-bottom:1.625em; }
 ul {
     margin-left: 20px;
 }
+
+.right.panel{z-index: 1 !important;}

@@ -14,11 +14,3 @@ When it comes to Forgiveness then I follow a strict All-Forgiving policy blaming
 _Is there anything I'm missing?_
 
 
-<script>
-var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id = "forgivenessandhatred";
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-</div>

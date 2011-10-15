@@ -31,12 +31,3 @@ _Would love to hear what you have to say!_
 _p.s. gender stereotyping also includes all the combinations of sexualities and genders_
 
 
-
-<script>
-var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id = "genderstereotyping";
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-</div>

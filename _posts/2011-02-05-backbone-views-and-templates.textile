@@ -1,6 +1,7 @@
 ---
 layout: post
 title: backbone.js beginners and underscore.js micro templating
+url: http://thomasdavis.github.com/2011/02/05/backbone-views-and-templates.html
 ---
 
 h2. backbone.js beginners and underscore.js micro templating
@@ -27,12 +28,3 @@ p. in the example I needed to access the parent object which contains a $.then a
 		an easier way to do it?
 
 
-
-<script>
-var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id = "sexylady";
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-</div>

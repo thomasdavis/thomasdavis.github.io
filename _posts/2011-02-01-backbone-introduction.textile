@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Backbone.js Tutorial - by noob for noobs
+url: http://thomasdavis.github.com/2011/02/01/backbone-introduction.html
 ---
 !/images/backbone.png!
 
@@ -148,13 +149,3 @@ Update: 	Changed the code to append the elements from the view and not the Model
 
 Update 2: A user called "svnlto":http://twitter.com/svenlito had a pull request to fix up the example code to implement better coding practises, he was spot on so I merged his request into the master branch. You can view the pull request <a href="https://github.com/thomasdavis/thomasdavis.github.com/pull/1" target="_blank">here</a>.
 
-
-
-<script>
-var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id = "backbone";
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-</div>

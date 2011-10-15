@@ -13,6 +13,7 @@
 
 html, body {
   height: 100%;
+  overflow-y: scroll;
 }
 
 body {
@@ -83,47 +84,32 @@ ul.posts {
   text-align: justify;
   width: 920px;
   line-height: 1.5em;
-
-  padding: 20px;
+  margin: auto;
+  padding: 0px;
 } 
-
+#header { 
+  background: #fff;
+  padding: 10px;
+}
 #header h1 a {
-  color: #fff;
+  color: #444;
 }
 #header h1 a:active {
-  color: #fff;
+  color: #666;
 }
 #content {
+  margin-top: 30px;
   background: #fff;
   padding: 30px;
 }
-  .site .footer {
-    font-size: 80%;
-    color: #666;
-    border-top: 4px solid #eee;
-    margin-top: 2em;
-    overflow: hidden;
-  }
-
-    .site .footer .contact {
-      float: left;
-      margin-right: 3em;
-    }
-
-      .site .footer .contact a {
-        color: #8085C1;
-      }
-
-    .site .footer .rss {
-      margin-top: 1.1em;
-      margin-right: -.2em;
-      float: right;
-    }
-
-      .site .footer .rss img {
-        border: 0;
-      }
-
+ 
+.links {
+  float: left;
+  width: 220px;
+}
+.latestpost {
+  float: left;
+}
 /*****************************************************************************/
 /*
 /* Posts

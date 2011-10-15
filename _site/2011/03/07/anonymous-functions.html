@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta name="readability-verification" content="vy47hkYexnjBxYJ62n4NseCxGUkPza7UP3enFJa3"/>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>javascript - pass "this" to your anonymous functions</title>
+   <meta name="author" content="Thomas Davis" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Typekit -->
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<style type="text/css">
+		body, ul { padding: 0; margin: 0; }
+		body { font-family: 'Arial'; }
+		#container { width: 760px; margin: auto; }
+		h1 {  font-size: 3em;  }
+		h3 { color: #444; }
+		#topmenu {  height: 27px; border-bottom: 1px solid #996699;	padding: 5px; }
+		#topmenu ul { list-style: none; }
+		#topmenu li { float: left; margin-left: 15px; font-size: 13px;}
+		 .FlattrButton {
+			position: absolute;
+			top: 53px;
+			right: 15px;
+		}
+	</style>
+	<script type="text/javascript">
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]> */
+</script>
+</head>
+<body>
+	
+	<!--
+	<a class="FlattrButton" style="display:none;" href="http://thomasdavis.github.com"></a>
+<noscript><a href="http://flattr.com/thing/176991/Tutorials-by-Thomas-Davis" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+<div id="topmenu">
+	<ul>
+	<li><a href="/">home</a></li>
+	<li><a href="https://github.com/thomasdavis">my github</a></li>
+	<li><a href="/about.html">about me</a></li>
+	<li><a href="http://protosal.com" target="_blank">check out my startup</a> ( backbone.js, node.js and couchdb )</li>
+	<li><a href="https://docs.google.com/document/pub?id=1Cy643CNQvQYew42S3dXkmLlUypQioNttApG_hgjIiMQ" target="_blank">my resume</a></li>
+<li><a href="http://twitter.com/?status=@iamjessicagomes,%20@neutralthoughts%20is%20a%20great%20guy,%20you%20should%20marry%20him" target="_blank" alt="will load in new window, please marry me">hot woman (SFW)</a></li>
+	</ul>
+	<ul style="float: right; margin-right: 15px;">
+	
+	<li>thomas davis - <a href="http://twitter.com/neutralthoughts">follow me on twitter</a> or don't</li>
+	</ul>
+</div>
+-->
+<div id="container">
+  <div id="header">
+      <h1><a href="/">Thomas Davis</a></h1>
+  </div>
+  <div id="content">
+    <div id="post">
+<h2>javascript &#8211; pass &#8220;this&#8221; to your anonymous functions</h2>
+<p>Anonymous functions in javascript are extremely powerful and if you don&#8217;t understand them fully just yet I would highly recommend learning asap.   A great guide can be found<br />
+<a href="http://helephant.com/2008/08/javascript-anonymous-functions/" target="_blank">here</a>.   The problem with anonymous functions is that when declared the value of &#8220;this&#8221; changes<br />
+depending on the situation and generally points to the functions scope.   <br /><br />This is generally not a desired effect and can cause people to use globals and other funky methods of accessing<br />
+parent objects in anonymous functions. Below I will show you a simple way to access the parent object.   Always remember objects in Javascript are passed by reference!</p>
+<h3>Passing &#8220;this&#8221; to the anonymous function</h3>
+<p>This step is quite easy and I have used a famous alien robot for the example.   The robot wants to access his main weapon system from one of methods.  So the expected<br />
+output is for the robot to fire &#8220;this.weapon&#8221; but as you see in the first example he cannot access his properties which are returned as &#8220;undefined&#8221;.</p>
+<h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/">Demo</a><br />
+    <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions">Source</a></h2>
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Below is a simple function to find our autobots, </span>
+<span class="c1">// just used for testing purposes</span>
+<span class="kd">function</span> <span class="nx">findAutobot</span><span class="p">(){</span>
+    <span class="c1">// Locate the autobots!</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// noob_bot is an example of what happens when you </span>
+<span class="c1">// don&#39;t pass this to your anonymous functions</span>
+<span class="nx">noob_bot</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">weapon</span><span class="o">:</span> <span class="s2">&quot;laser&quot;</span><span class="p">,</span>
+    <span class="nx">kill</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// In the then statement we have declared an </span>
+        <span class="c1">// anonymous function and we want to access noob_bots properties</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span> <span class="nx">findAutobot</span> <span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Noob_bot: Fire the &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">weapon</span> <span class="o">+</span> <span class="s2">&quot;!!!#!&quot;</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Noob_bots weapon would have failed(undefined) because when</span>
+<span class="c1">// you create anonymous functions the scope of &quot;this&quot;</span>
+<span class="c1">// changes to the function.   So we use $.proxy(function, this) </span>
+<span class="nx">megatron</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">weapon</span><span class="o">:</span> <span class="s2">&quot;laser&quot;</span><span class="p">,</span>
+    <span class="nx">kill</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// Megatron has direct access to his weapon systems</span>
+        <span class="c1">//  because we have called .bind(this)</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span> <span class="nx">findAutobot</span> <span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Megatron: Fire the &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">weapon</span> <span class="o">+</span> <span class="s2">&quot;!!!#!&quot;</span><span class="p">);</span>
+            <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    
+<span class="nx">noob_bot</span><span class="p">.</span><span class="nx">kill</span><span class="p">();</span>
+<span class="nx">megatron</span><span class="p">.</span><span class="nx">kill</span><span class="p">();</span>
+</code></pre>
+</div>
+<h2><a href="http://thomasdavis.github.com/examples/anonymous-functions/">Demo</a><br />
+    <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/anonymous-functions">Source</a></h2>
+<h3>Conclusion</h3>
+<p>There are many other ways of passing &#8220;this&#8221; to an anonymous function and if you have any better suggestions I welcome you to post them.   Hopefully this tutorial has been helpful to you!  <br />
+Fork me on github, using the link in the top left.</p>
+<h3>Other implementations</h3>
+<p>Just posting a few solutions posted by others below.</p>
+<p>From sisk on hackernews<br />
+<a href="http://news.ycombinator.com/item?id=2296064">http://news.ycombinator.com/item?id=2296064</a></p>
+<div class="highlight"><pre><code class="javascript"><span class="nx">setTimeout</span><span class="p">(</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">scope</span><span class="p">.</span><span class="nx">fire</span><span class="p">();};</span>
+<span class="p">})(</span><span class="k">this</span><span class="p">),</span> <span class="mi">500</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+<p>sisk : The short explanation is you return a function from an immediately-<br />
+executing anonymous function that takes the current scope as a parameter.</p>
+<script>
+var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
+var idcomments_post_id = "lasergun";
+var idcomments_post_url;
+</script><p><span id="IDCommentsPostTitle" style="display:none"></span><br />
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script></p>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thomasdavis'; // required: replace example with your forum shortname
+    var disqus_developer = 1; // developer mode is on
+    var disqus_identifier = 'http://backbonetutorials.com/organizing-backbone-using-modules';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+<!--
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/a-moral-dilemma-on-forgiveness-and-hatred.html">A Moral Dilemma On Forgiveness and Hatred</a></li>
+    
+      <li><span>07 Jul 2011</span> &raquo; <a href="/2011/07/07/the-elevator-scene.html">The Elevator. Sexism or gender stereotyping?</a></li>
+    
+      <li><span>05 Jul 2011</span> &raquo; <a href="/2011/07/05/is-the-internet-an-extension-of-human-memory.html">Is the Internet an extension of human memory?</a></li>
+    
+  </ul>
+</div>
+-->
+
+  </div>
+
+</div>
+
+
+
+
+  
+</div>
+
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+ 
+    <script src="http://static.getclicky.com/js" type="text/javascript"></script>
+    <script type="text/javascript">try{ clicky.init(66379121); }catch(err){}</script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66379121ns.gif" /></p></noscript>
+    
+    
+</body>
+</html>

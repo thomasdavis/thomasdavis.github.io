@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta name="readability-verification" content="vy47hkYexnjBxYJ62n4NseCxGUkPza7UP3enFJa3"/>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>jQuery 1.5 - create deferred object with callback parameters</title>
+   <meta name="author" content="Thomas Davis" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Typekit -->
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<style type="text/css">
+		body, ul { padding: 0; margin: 0; }
+		body { font-family: 'Arial'; }
+		#container { width: 760px; margin: auto; }
+		h1 {  font-size: 3em;  }
+		h3 { color: #444; }
+		#topmenu {  height: 27px; border-bottom: 1px solid #996699;	padding: 5px; }
+		#topmenu ul { list-style: none; }
+		#topmenu li { float: left; margin-left: 15px; font-size: 13px;}
+		 .FlattrButton {
+			position: absolute;
+			top: 53px;
+			right: 15px;
+		}
+	</style>
+	<script type="text/javascript">
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]> */
+</script>
+</head>
+<body>
+	
+	<!--
+	<a class="FlattrButton" style="display:none;" href="http://thomasdavis.github.com"></a>
+<noscript><a href="http://flattr.com/thing/176991/Tutorials-by-Thomas-Davis" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+<div id="topmenu">
+	<ul>
+	<li><a href="/">home</a></li>
+	<li><a href="https://github.com/thomasdavis">my github</a></li>
+	<li><a href="/about.html">about me</a></li>
+	<li><a href="http://protosal.com" target="_blank">check out my startup</a> ( backbone.js, node.js and couchdb )</li>
+	<li><a href="https://docs.google.com/document/pub?id=1Cy643CNQvQYew42S3dXkmLlUypQioNttApG_hgjIiMQ" target="_blank">my resume</a></li>
+<li><a href="http://twitter.com/?status=@iamjessicagomes,%20@neutralthoughts%20is%20a%20great%20guy,%20you%20should%20marry%20him" target="_blank" alt="will load in new window, please marry me">hot woman (SFW)</a></li>
+	</ul>
+	<ul style="float: right; margin-right: 15px;">
+	
+	<li>thomas davis - <a href="http://twitter.com/neutralthoughts">follow me on twitter</a> or don't</li>
+	</ul>
+</div>
+-->
+<div id="container">
+  <div id="header">
+      <h1><a href="/">Thomas Davis</a></h1>
+  </div>
+  <div id="content">
+    <div id="post">
+<h2>jQuery 1.5 &#8211; create your own deferred object with parameters</h2>
+<p>jQuery has just recently released version 1.5 which now contains $.when and $.then, yay!  There are many tutorials already   on how to use these new functions.  All the examples used $.ajax calls which are setup by jQuery to be used as deferred objects so I found it difficult to implement my own deferred objects.   I found this <a href="http://www.erichynds.com/jquery/using-deferreds-in-jquery/">guide</a> which is great and covers most of what you need to know.</p>
+<p>The tutorial covers how to create your own deferred objects but doesn&#8217;t include passing parameters to $.then call backs.   So after playing around a little bit and reading the jQuery source I figured it out and have included it below.</p>
+<p>I have seen some people asking on how to do this so hopefully it helps! As usual post any mistakes I made</p>
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">(){</span>
+	<span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">deferred_obj</span> <span class="p">){</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">);</span> <span class="c1">// Example</span>
+		<span class="nx">deferred_obj</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span> <span class="s2">&quot;these&quot;</span><span class="p">,</span> <span class="s2">&quot;are&quot;</span><span class="p">,</span> <span class="s2">&quot;my&quot;</span><span class="p">,</span> <span class="s2">&quot;parameters&quot;</span> <span class="p">);</span>
+		<span class="c1">// Call resolve when you are ready to continue, in animation callbacks etc</span>
+	<span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span> <span class="nx">myFunc</span><span class="p">()</span> <span class="p">)</span>
+	<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">p3</span><span class="p">,</span> <span class="nx">p4</span><span class="p">){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">p1</span> <span class="o">+</span> <span class="nx">p2</span> <span class="o">+</span> <span class="nx">p3</span> <span class="o">+</span> <span class="nx">p4</span><span class="p">);</span>
+<span class="p">});</span>       
+</code></pre>
+</div>
+<p>So it&#8217;s pretty easy and you should start using them immediatly!</p>
+<h2><a href="http://thomasdavis.github.com/examples/jquery-deferred/">Demo</a><br />
+	<a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/jquery-deferred">Source</a></h2>
+<script>
+var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
+var idcomments_post_id = "jquerydeferred";
+var idcomments_post_url;
+</script><p><span id="IDCommentsPostTitle" style="display:none"></span><br />
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script></p>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thomasdavis'; // required: replace example with your forum shortname
+    var disqus_developer = 1; // developer mode is on
+    var disqus_identifier = 'http://backbonetutorials.com/organizing-backbone-using-modules';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+<!--
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/a-moral-dilemma-on-forgiveness-and-hatred.html">A Moral Dilemma On Forgiveness and Hatred</a></li>
+    
+      <li><span>07 Jul 2011</span> &raquo; <a href="/2011/07/07/the-elevator-scene.html">The Elevator. Sexism or gender stereotyping?</a></li>
+    
+      <li><span>05 Jul 2011</span> &raquo; <a href="/2011/07/05/is-the-internet-an-extension-of-human-memory.html">Is the Internet an extension of human memory?</a></li>
+    
+  </ul>
+</div>
+-->
+
+  </div>
+
+</div>
+
+
+
+
+  
+</div>
+
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+ 
+    <script src="http://static.getclicky.com/js" type="text/javascript"></script>
+    <script type="text/javascript">try{ clicky.init(66379121); }catch(err){}</script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66379121ns.gif" /></p></noscript>
+    
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>javascript - pass "this" to your anonymous functions like megatron</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+        <link rel="stylesheet" media="all" href=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+    </head>
+
+    <body lang="en">
+    Gday mate!
+    <script>
+
+        // Below is a simple function to find our autobots, 
+        // just used for testing purposes
+        function findAutobot(){
+            // Locate the autobots!
+            return true;
+        }
+        
+        // noob_bot is an example of what happens when you 
+        // don't pass this to your anonymous functions
+        noob_bot = {
+            weapon: "laser",
+            kill: function(){
+                // In the then statement we have declared an 
+                // anonymous function and we want to access noob_bots properties
+                $.when( findAutobot )
+                .then( function(){
+                    alert("Noob_bot: Fire the " + this.weapon + "!!!#!");
+                });
+            }
+        }
+        
+        // Noob_bots weapon would have failed(undefined) because when
+        // you create anonymous functions the scope of "this"
+        // changes to the function.   So we use .bind(this) at  
+        // the end of our anonymous function to pass "this"
+        megatron = {
+            weapon: "laser",
+            kill: function(){
+                // Megatron has direct access to his weapon systems
+                //  because we have called .bind(this)
+                $.when( findAutobot )
+                .then( $.proxy( function(){
+                        alert("Megatron: Fire the " + this.weapon + "!!!#!");
+                    }, this);
+                })
+            }
+        }
+            
+        noob_bot.kill();
+        megatron.kill();
+        
+    </script>
+    </body>
+
+</html>

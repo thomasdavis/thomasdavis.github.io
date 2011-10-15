@@ -139,11 +139,4 @@ For the last example tutorial I wrote many members of the community proposed sol
 	<script type="text/javascript">
 		SyntaxHighlighter.all()
 	</script>
-<script>
-var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id = "restfulapp";
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-</div>
+

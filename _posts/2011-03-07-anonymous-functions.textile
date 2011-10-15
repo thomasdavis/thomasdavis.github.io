@@ -100,11 +100,4 @@ p. sisk : The short explanation is you return a function from an immediately-
 executing anonymous function that takes the current scope as a parameter.
 
 
-<script>
-var idcomments_acct = 'e6c0e0096f8106ea52c674a85b26ecf9';
-var idcomments_post_id = "lasergun";
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-</div>
+

@@ -1,4 +1,4 @@
-{ "packages": [
+somecallback ({ "packages": [
 {
     "name": "backbone-localstorage.js",
     "filename": "backbone-localstorage-min.js",
@@ -1486,4 +1486,4 @@
    ]
 }
 ,
-{}] }
+{}] });

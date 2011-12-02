@@ -1,61 +1,36 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    
+
+
+
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-   <meta name="readability-verification" content="vy47hkYexnjBxYJ62n4NseCxGUkPza7UP3enFJa3"/>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>restful ajax web app basics ( mimic gmail with backbone.js )</title>
-   <meta name="author" content="Thomas Davis" />
+   <title>Thomas Davis</title>   <meta name="author" content="Thomas Davis" />
 
-   <!-- syntax highlighting CSS -->
-   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-
-   <!-- Typekit -->
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-
+   <link rel="stylesheet" href="/css/styles.css" type="text/css" />
 </head>
 <body>
-	
-	<!--
-	<a class="FlattrButton" style="display:none;" href="http://thomasdavis.github.com"></a>
-<noscript><a href="http://flattr.com/thing/176991/Tutorials-by-Thomas-Davis" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-<div id="topmenu">
-	<ul>
-	<li><a href="/">home</a></li>
-	<li><a href="https://github.com/thomasdavis">my github</a></li>
-	<li><a href="/about.html">about me</a></li>
-	<li><a href="http://protosal.com" target="_blank">check out my startup</a> ( backbone.js, node.js and couchdb )</li>
-	<li><a href="https://docs.google.com/document/pub?id=1Cy643CNQvQYew42S3dXkmLlUypQioNttApG_hgjIiMQ" target="_blank">my resume</a></li>
-<li><a href="http://twitter.com/?status=@iamjessicagomes,%20@neutralthoughts%20is%20a%20great%20guy,%20you%20should%20marry%20him" target="_blank" alt="will load in new window, please marry me">hot woman (SFW)</a></li>
-	</ul>
-	<ul style="float: right; margin-right: 15px;">
-	
-	<li>thomas davis - <a href="http://twitter.com/neutralthoughts">follow me on twitter</a> or don't</li>
-	</ul>
-</div>
--->
-<div id="container">
-  <div id="header">
-	  <img src="http://en.gravatar.com/userimage/9083995/edbb5edbf89b58bfecd99e3452986f05.jpg?size=70" style="float: left;" />
-	  <div style="float: left; width: 300px; margin-left: 20px; margin-top: 15px;">
-      <h1 style="margin-bottom: 5px;"><a href="/">Thomas Davis</a></h1>
-      <a href="https://twitter.com/neutralthoughts" class="twitter-follow-button">Follow @neutralthoughts</a>
-      </div>
-<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-      <div style="clear: both;"></div>
 
-  </div>
-  <div id="content">
-    <div id="post">
+<div class="container">
+  <div class="wrapper span-22 push-1">
+    <div class="header span-20 push-1">
+      <div class="span-14">
+        <h1><a href="http://thomasdavis.github.com">Thomas Davis - Front End Developer</a></h1>
+    <a href="https://twitter.com/neutralthoughts" class="twitter-follow-button">Follow @neutralthoughts</a>
+<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+      </div>
+    </div>
+    <div class="page span-20 push-1">
+<a href="/">Back to home</a
 <h2>restful ajax web app basics ( mimic gmail with backbone.js )</h2>
 <p>The goal is to build a small example of Service Oriented Architecture (<span class="caps">SOA</span>) and Thin Server Architecture (<span class="caps">TSA</span>). We want our server to only produce raw data and never send <span class="caps">HTML</span>! ( We&#8217;re using <span class="caps">REST</span> not <span class="caps">SOAP</span>, no fighting).</p>
-<p>This is a quick guide to get you started on building a one page web app that uses hashtag events and history to allow users to navigate your site without reloading the page ever.   Don&#8217;t want to be <strong>circle</strong> jerking too hard but todays tutorial will be using Backbone.js again.</p>
-
-<h2><a href="http://thomasdavis.github.com/examples/restful-app/">Demo</a><br />
-    <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app">Source</a></h2>
-<h3>Benefits of Thin Server Architecture</h3>
+<p>This is a quick guide to get you started on building a one page web app that uses hashtag events and history to allow users to navigate your site without reloading the page ever.   Don&#8217;t want to be <strong>circle</strong> jerking too hard but todays tutorial will be using Backbone.js again.<br />
+		  <br />
+ <br />
+h2. <a href="http://thomasdavis.github.com/examples/restful-app/">Demo</a><br />
+    <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app">Source</a><br />
+    <br />
+h3. Benefits of Thin Server Architecture</p>
 <p>Before I continue with the tutorial here are just a few pros I can think of for using a fully ajax app with a restful interface.</p>
 <ul>
 	<li>Less <span class="caps">HTTP</span> request</li>
@@ -66,93 +41,28 @@
 	<li>!flash</li>
 </ul>
 <p>I was excited the first time I wrote a fully ajax app and I hope that some of you can feel the orgasmic feeling of dynamically loaded content.   With the advent of the google <a href="http://www.seomoz.org/blog/how-to-allow-google-to-crawl-ajax-content">hashbang</a>, you should be able to also build your websites/blogs with pure ajax calls now while still still reaping the benefits of google rankings.</p>
-<p>Possibly one of the funnest parts is choosing an ajax loading graphic, I always use this <a href="http://ajaxload.info/">site</a>.</p>
-<h3>Understanding the hash tag</h3>
+<p>Possibly one of the funnest parts is choosing an ajax loading graphic, I always use this <a href="http://ajaxload.info/">site</a>.<br />
+         <br />
+h3. Understanding the hash tag</p>
 <p>Backbone.js implements two classes called Controller and History.   Using just these two classes we can constructthe entire backbone of our restful app.</p>
 <p>To make a fully ajax website we need to use the hashtag, which up until this point has been used predominatly for anchor tags. Browsers don&#8217;t trigger any page refreshes with hashtags so using Javascript we can detect when the # location changes.   Instead of triggering the default behavior of finding an anchor, we instead load custom Javascript.</p>
 <p>Below is all the <span class="caps">HTML</span> we will be using today.  Also note the inclusion of underscore.js, its a depdendecy of backbone.js and brings alot of power to the table.   I have simply set up four links that shall react accordingly and hopefully load data into our content pane div.</p>
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-	<span class="nt">&lt;title&gt;</span>Hide your kids, hide your wife and hide your husbands<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-
-<span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#animals/dog&quot;</span><span class="nt">&gt;</span>Dogs<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#animals/cat&quot;</span><span class="nt">&gt;</span>cats<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#shop&quot;</span><span class="nt">&gt;</span>Shops<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#gangster&quot;</span><span class="nt">&gt;</span>Gangsters<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content-pane&quot;</span><span class="nt">&gt;</span>No content loaded<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
-<p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/restful-app/">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app">here</a></p>
-<h3>Controlling the Controller</h3>
+<p>Liquid error: undefined method `join&#8217; for #<String:0x10157ffb0></p>
+<p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/restful-app/">here</a> and downloaded <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app">here</a><br />
+		<br />
+h3. Controlling the Controller</p>
 <p>Below is the documented code that will run the restful ajax app.  Note that I have included a service called <a href="http://openkeyval.org">openkeyval.org</a> which is simplya free service for storing key pair values.  It is a great example of <a href="http://www.slideshare.net/spacemonkeylabs/thin-server-architecture"><span class="caps">TSA</span></a> and saves me setting up a nginx/reddis server.</p>
 <p>Hopefully the code below should be simply enough to understand.   Most of you who have used a server side framework have probably experienced using Routes.  Backbone.js implements routes and you should quickly read the documentation <a href="http://documentcloud.github.com/backbone/#Controller-routes">here</a>.   In the example I set up two types of routes one to catch specific urls and a standard catch all urls route.   Take note of the colon and asterisk, the appended string gets turned into a variable for convenient usage in your call back functions.</p>
 <p>Using jQuery ajax call we specify the data type as &#8220;jsonp&#8221; to circumvent the foreign cross site policy.</p>
-<div class="highlight"><pre><code class="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-	
-	<span class="kd">var</span> <span class="nx">restfulApp</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-		<span class="nx">restfulUrl</span><span class="o">:</span> <span class="s2">&quot;http://api.openkeyval.org/&quot;</span><span class="p">,</span> <span class="c1">//This is a free service to store key pair values</span>
-		
-		<span class="c1">//Routes tell the app what to do </span>
-		<span class="nx">routes</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s2">&quot;animals/:animal&quot;</span><span class="o">:</span>          <span class="s2">&quot;animalAction&quot;</span><span class="p">,</span>  <span class="c1">//This matches app/animals/* and assigns * to a variable called &quot;animal&quot;</span>
-		<span class="s2">&quot;*page&quot;</span><span class="o">:</span>                 	<span class="s2">&quot;defaultAction&quot;</span><span class="p">,</span> <span class="c1">//This simply matches any urls that weren&#39;t caught above and assigns it to &quot;page&quot;</span>
-		<span class="p">},</span>
-		
-		<span class="nx">defaultAction</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">page</span> <span class="p">){</span>
-			<span class="k">if</span><span class="p">(</span> <span class="nx">page</span> <span class="p">)</span> <span class="p">{</span>
-				<span class="c1">//Once the default action is called we want to construct a link to our restful service</span>
-				<span class="kd">var</span> <span class="nx">restfulPageUrl</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">restfulUrl</span> <span class="o">+</span> <span class="nx">page</span> <span class="o">+</span> <span class="s2">&quot;page&quot;</span> <span class="c1">//http://api.openkeyval.org/gangsterpage</span>
-				<span class="c1">//Now we have a url lets get the data</span>
-				<span class="k">this</span><span class="p">.</span><span class="nx">loadRestfulData</span><span class="p">(</span> <span class="nx">restfulPageUrl</span> <span class="p">);</span>
-			<span class="p">}</span>
-		<span class="p">},</span>
-		<span class="nx">animalAction</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">animal</span> <span class="p">)</span> <span class="p">{</span>
-			<span class="c1">//Once the default action is called we want to construct a link to our restful service</span>
-			<span class="kd">var</span> <span class="nx">restfulPageUrl</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">restfulUrl</span> <span class="o">+</span> <span class="nx">animal</span> <span class="o">+</span> <span class="s2">&quot;page&quot;</span> <span class="c1">//http://api.openkeyval.org/dogpage</span>
-			<span class="c1">//Now we have a url lets get the data</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">loadRestfulData</span><span class="p">(</span> <span class="nx">restfulPageUrl</span> <span class="p">);</span>
-		<span class="p">},</span>
-		<span class="nx">loadRestfulData</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">pageUrl</span> <span class="p">){</span>
-			<span class="c1">//Set the content pane to a loading screen</span>
-			<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content-pane&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span> <span class="s2">&quot;loading data...&quot;</span> <span class="p">);</span>
-			<span class="c1">//Load the data in using jQuerys ajax call</span>
-			<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-				<span class="nx">url</span><span class="o">:</span> <span class="nx">pageUrl</span><span class="p">,</span>
-				<span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;jsonp&quot;</span><span class="p">,</span>
-				<span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
-					<span class="c1">//Once we receive the data, set it to the content pane.</span>
-					<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content-pane&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span> <span class="nx">data</span> <span class="p">);</span>
-				<span class="p">}</span>
-			<span class="p">});</span>	
-		<span class="p">}</span>
-
-	<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">restfulApp</span><span class="p">;</span>
-	<span class="c1">//Initiate a new history and controller class</span>
-	<span class="nx">Backbone</span><span class="p">.</span><span class="nx">emulateHTTP</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-	<span class="nx">Backbone</span><span class="p">.</span><span class="nx">emulateJSON</span> <span class="o">=</span> <span class="kc">true</span> 
-	<span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-
-<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
-</code></pre>
-</div>
+<p>Liquid error: undefined method `join&#8217; for #<String:0x10157fb28></p>
 <h2><a href="http://thomasdavis.github.com/examples/restful-app/">Demo</a><br />
 	<a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/restful-app">Source</a></h2>
 <h3>Conclusion</h3>
 <p>Building fully ajax web apps/sites has never been easier.   I cannot think of any reasons not to and I personally love the feel of a responsive non refreshing page.   If you have built a hash tag web app or site before I&#8217;d love to see it so post it below.</p>
 <p>If you see any errors or bad practises please do a pull request or simply leave a comment.</p>
-<p>For the last example tutorial I wrote many members of the community proposed solutions in other JS frameworks.  I believe this is very important as the web starts releasing more and more Javascript frameworks.</p>
-<p><span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span><br />
+<p>For the last example tutorial I wrote many members of the community proposed solutions in other JS frameworks.  I believe this is very important as the web starts releasing more and more Javascript frameworks.<br />
+	<br />
+	  <span class="st_twitter_vcount" displayText="Tweet"></span><span class="st_facebook_vcount" displayText="Share"></span><span class="st_email_vcount" displayText="Email"></span><span class="st_sharethis_vcount" displayText="Share"></span><br />
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'bdee6d8c-ed9a-4867-90f6-011704c29ee3'});</script>	</article></p>
 <p><script type="text/javascript">
 		SyntaxHighlighter.all()
@@ -173,22 +83,6 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-</div>
-<!--
-<div id="related">
-  <h2>Related Posts</h2>
-  <ul class="posts">
-    
-      <li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/a-moral-dilemma-on-forgiveness-and-hatred.html">A Moral Dilemma On Forgiveness and Hatred</a></li>
-    
-      <li><span>07 Jul 2011</span> &raquo; <a href="/2011/07/07/the-elevator-scene.html">The Elevator. Sexism or gender stereotyping?</a></li>
-    
-      <li><span>05 Jul 2011</span> &raquo; <a href="/2011/07/05/is-the-internet-an-extension-of-human-memory.html">Is the Internet an extension of human memory?</a></li>
-    
-  </ul>
-</div>
--->
 
   </div>
 

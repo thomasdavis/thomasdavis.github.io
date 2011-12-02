@@ -2,24 +2,55 @@
 layout: default
 title: Thomas Davis
 ---
-
-<div id="home">
-  <p></p>	
-  <div class="links">
-  <h3>Projects</h3>
-  <ul>
-    <li><a href="">BackboneTutorials.com</a></li>
-    <li><a href="">Cdnjs.com</a></li>
-    <li><a href="">Protosal.com</a></li>
-  </ul>
-  </div>
-  <div class="latestpost">
-  <h3>Latest Posts</h3>
+<h2 class="categoryHeading">Featured Projects</h2>
+      <div class="project span-6 prepend-1">
+        <a href="http://backbonetutorials.com"><img src="img/backbone.png" /></a>
+        <h3>Backbone Tutorials</h3>
+      </div>
+      <div class="project span-6">
+        <a href="http://cdnjs.com"><img src="img/cdnjs.png" /></a>
+        <h3>Cdn Js</h3>
+      </div>      <div class="project span-6 append-1 last">
+        <a href="http://protosal.com"><img src="img/protosal.png" /></a>
+        <h3>Protosal</h3>      </div>
+      
+      <h2 class="categoryHeading clear">About me</h2>
+        <div class="span-10 prepend-1 append-1">          <p>I have spent the last 10 years of my short life on the internet learning
+          the <a href="http://www.youtube.com/watch?v=bgoDkwwpFx0&feature=channel_video_title">good</a>
+          , <a href="http://facebook.com">bad</a> and <a href="http://au.geocities.yahoo.com/index.php">ugly</a>          parts.</p>
+    
+          <p>Went to the University of Queensland for two years before the cruel nature of modern education
+          took its toll forcing me to drop-out.   Started free-lancing and working on open source projects.</p>
+  
+          <p> Currently working at 
+          <a href="http://ephox.com">Ephox</a> as a front-end developer with some of the coolest people I have eve
+        </div>
+        <div class="span-8 last">
+          <h3 class="personalHeading">Skills</h3>
+            <ul>
+              <li>Backbone.js</li>
+              <li>Node.js</li>
+              <li>Front-end</li>
+              <li>Back-end</li>
+              <li>Dancing</li>
+            </ul>
+          <h3 class="personalHeading">Fun facts</h3>
+            <ul>
+              <li>Can benchpress 120kg 4+ times</li>
+              <li>Lives in Australia</li>
+              <li>Free spirit</li>
+              <li>I was pretty drunk when I designed this site</li>
+            </ul>
+        </div>
+      <h2 class="categoryHeading clear">Blog</h2>
   <ul class="posts">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
-  </div>
-  <div style="clear: both;"></div>
-</div>
+      <h2 class="categoryHeading clear">Contact</h2>
+        <ul>
+          <li>email - thomasalwyndavis@gmail.com</li>
+          <li>github - <a href="http://github.com/thomasdavis">@thomasdavis</a></li>
+          <li>twitter - <a href="http://twitter.com/neutralthoughts">@neutralthoughts</a></li>
+        </ul>

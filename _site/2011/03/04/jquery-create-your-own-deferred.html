@@ -1,71 +1,33 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    
+
+
+
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-   <meta name="readability-verification" content="vy47hkYexnjBxYJ62n4NseCxGUkPza7UP3enFJa3"/>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>jQuery 1.5 - create deferred object with callback parameters</title>
-   <meta name="author" content="Thomas Davis" />
+   <title>Thomas Davis</title>   <meta name="author" content="Thomas Davis" />
 
-   <!-- syntax highlighting CSS -->
-   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-
-   <!-- Typekit -->
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-
+   <link rel="stylesheet" href="/css/styles.css" type="text/css" />
 </head>
 <body>
-	
-	<!--
-	<a class="FlattrButton" style="display:none;" href="http://thomasdavis.github.com"></a>
-<noscript><a href="http://flattr.com/thing/176991/Tutorials-by-Thomas-Davis" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-<div id="topmenu">
-	<ul>
-	<li><a href="/">home</a></li>
-	<li><a href="https://github.com/thomasdavis">my github</a></li>
-	<li><a href="/about.html">about me</a></li>
-	<li><a href="http://protosal.com" target="_blank">check out my startup</a> ( backbone.js, node.js and couchdb )</li>
-	<li><a href="https://docs.google.com/document/pub?id=1Cy643CNQvQYew42S3dXkmLlUypQioNttApG_hgjIiMQ" target="_blank">my resume</a></li>
-<li><a href="http://twitter.com/?status=@iamjessicagomes,%20@neutralthoughts%20is%20a%20great%20guy,%20you%20should%20marry%20him" target="_blank" alt="will load in new window, please marry me">hot woman (SFW)</a></li>
-	</ul>
-	<ul style="float: right; margin-right: 15px;">
-	
-	<li>thomas davis - <a href="http://twitter.com/neutralthoughts">follow me on twitter</a> or don't</li>
-	</ul>
-</div>
--->
-<div id="container">
-  <div id="header">
-	  <img src="http://en.gravatar.com/userimage/9083995/edbb5edbf89b58bfecd99e3452986f05.jpg?size=70" style="float: left;" />
-	  <div style="float: left; width: 300px; margin-left: 20px; margin-top: 15px;">
-      <h1 style="margin-bottom: 5px;"><a href="/">Thomas Davis</a></h1>
-      <a href="https://twitter.com/neutralthoughts" class="twitter-follow-button">Follow @neutralthoughts</a>
-      </div>
-<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-      <div style="clear: both;"></div>
 
-  </div>
-  <div id="content">
-    <div id="post">
+<div class="container">
+  <div class="wrapper span-22 push-1">
+    <div class="header span-20 push-1">
+      <div class="span-14">
+        <h1><a href="http://thomasdavis.github.com">Thomas Davis - Front End Developer</a></h1>
+    <a href="https://twitter.com/neutralthoughts" class="twitter-follow-button">Follow @neutralthoughts</a>
+<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+      </div>
+    </div>
+    <div class="page span-20 push-1">
+<a href="/">Back to home</a
 <h2>jQuery 1.5 &#8211; create your own deferred object with parameters</h2>
-<p>jQuery has just recently released version 1.5 which now contains $.when and $.then, yay!  There are many tutorials already   on how to use these new functions.  All the examples used $.ajax calls which are setup by jQuery to be used as deferred objects so I found it difficult to implement my own deferred objects.   I found this <a href="http://www.erichynds.com/jquery/using-deferreds-in-jquery/">guide</a> which is great and covers most of what you need to know.</p>
-<p>The tutorial covers how to create your own deferred objects but doesn&#8217;t include passing parameters to $.then call backs.   So after playing around a little bit and reading the jQuery source I figured it out and have included it below.</p>
+<p>jQuery has just recently released version 1.5 which now contains $.when and $.then, yay!  There are many tutorials already   on how to use these new functions.  All the examples used $.ajax calls which are setup by jQuery to be used as deferred objects so I found it difficult to implement my own deferred objects.   I found this <a href="http://www.erichynds.com/jquery/using-deferreds-in-jquery/">guide</a> which is great and covers most of what you need to know.<br />
+        <br />
+	The tutorial covers how to create your own deferred objects but doesn&#8217;t include passing parameters to $.then call backs.   So after playing around a little bit and reading the jQuery source I figured it out and have included it below.</p>
 <p>I have seen some people asking on how to do this so hopefully it helps! As usual post any mistakes I made</p>
-<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">(){</span>
-	<span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">deferred_obj</span> <span class="p">){</span>
-		<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">);</span> <span class="c1">// Example</span>
-		<span class="nx">deferred_obj</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span> <span class="s2">&quot;these&quot;</span><span class="p">,</span> <span class="s2">&quot;are&quot;</span><span class="p">,</span> <span class="s2">&quot;my&quot;</span><span class="p">,</span> <span class="s2">&quot;parameters&quot;</span> <span class="p">);</span>
-		<span class="c1">// Call resolve when you are ready to continue, in animation callbacks etc</span>
-	<span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
-<span class="p">};</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span> <span class="nx">myFunc</span><span class="p">()</span> <span class="p">)</span>
-	<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">p3</span><span class="p">,</span> <span class="nx">p4</span><span class="p">){</span>
-		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">p1</span> <span class="o">+</span> <span class="nx">p2</span> <span class="o">+</span> <span class="nx">p3</span> <span class="o">+</span> <span class="nx">p4</span><span class="p">);</span>
-<span class="p">});</span>       
-</code></pre>
-</div>
+<p>Liquid error: undefined method `join&#8217; for #<String:0x10154e960></p>
 <p>So it&#8217;s pretty easy and you should start using them immediatly!</p>
 <h2><a href="http://thomasdavis.github.com/examples/jquery-deferred/">Demo</a><br />
 	<a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/jquery-deferred">Source</a></h2>
@@ -85,22 +47,6 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-</div>
-<!--
-<div id="related">
-  <h2>Related Posts</h2>
-  <ul class="posts">
-    
-      <li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/a-moral-dilemma-on-forgiveness-and-hatred.html">A Moral Dilemma On Forgiveness and Hatred</a></li>
-    
-      <li><span>07 Jul 2011</span> &raquo; <a href="/2011/07/07/the-elevator-scene.html">The Elevator. Sexism or gender stereotyping?</a></li>
-    
-      <li><span>05 Jul 2011</span> &raquo; <a href="/2011/07/05/is-the-internet-an-extension-of-human-memory.html">Is the Internet an extension of human memory?</a></li>
-    
-  </ul>
-</div>
--->
 
   </div>
 

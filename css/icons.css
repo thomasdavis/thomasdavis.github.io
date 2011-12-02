@@ -1,0 +1,15 @@
+.icon {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -999px;
+  width: 24px; height: 24px;
+}
+.icon.delete {
+  background: url("../img/icons/delete_icon&24.png");
+} 
+.icon.add {
+  background: url("../img/icons/sq_plus_icon&24.png");
+} 
+.icon.dropdown {
+  background: url("../img/icons/sq_down_icon&24.png");
+}

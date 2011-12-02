@@ -130,9 +130,29 @@
     <h1>Some sample code</h1>
 
 <div class="CodeRay">
-  <div class="code"><pre><span class="r">def</span> <span class="fu">method</span>
-  puts <span class="s"><span class="dl">&quot;</span><span class="k">Hello, World</span><span class="dl">&quot;</span></span>
-<span class="r">end</span></pre></div>
+  <div class="code"><pre>require(
+        {
+                <span class="ke">paths</span>: {
+                        <span class="ke"><span class="dl">&quot;</span><span class="k">cdn-jquery</span><span class="dl">&quot;</span></span>: <span class="s"><span class="dl">&quot;</span><span class="k">http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min</span><span class="dl">&quot;</span></span>
+                        <span class="s"><span class="dl">&quot;</span><span class="k">cdn-backbone</span><span class="dl">&quot;</span></span>: <span class="s"><span class="dl">&quot;</span><span class="k">http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min</span><span class="dl">&quot;</span></span>,
+                        <span class="ke"><span class="dl">&quot;</span><span class="k">cdn-underscore</span><span class="dl">&quot;</span></span>: <span class="s"><span class="dl">&quot;</span><span class="k">http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.1.7/underscore-min</span><span class="dl">&quot;</span></span>
+                }
+                
+        },
+    [
+        <span class="s"><span class="dl">&quot;</span><span class="k">require</span><span class="dl">&quot;</span></span>,
+                <span class="s"><span class="dl">&quot;</span><span class="k">order!backbone</span><span class="dl">&quot;</span></span>,
+                <span class="s"><span class="dl">&quot;</span><span class="k">text!2.tpl</span><span class="dl">&quot;</span></span>
+
+
+    ], 
+    <span class="kw">function</span> (require, Backbone, templates ) {
+                <span class="pd">$</span>(<span class="s"><span class="dl">&quot;</span><span class="k">body</span><span class="dl">&quot;</span></span>).append(templates);
+        require([<span class="s"><span class="dl">&quot;</span><span class="k">app</span><span class="dl">&quot;</span></span>], <span class="kw">function</span> (app) {
+                  <span class="kw">var</span> appview = <span class="kw">new</span> AppView();
+              });
+    }
+);</pre></div>
 </div>
 
 

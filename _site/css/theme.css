@@ -1,0 +1,66 @@
+body {
+  background: #444 url(../img/whitediamond.png);
+  font-size: 15px;
+  font-family: Arial;
+  color: #888;
+}
+.wrapper {
+  background: #fff;
+  min-height: 400px;
+}
+.container {
+  background: #ebebeb;
+}
+.header {
+}
+.page {
+}
+.footer {
+}
+
+h1 a {
+  color: #888;
+  text-decoration: none;
+}
+h1 a:visited {
+  color: #888;
+}
+.twitter-follow-button {
+  margin-left: 40px;
+}
+.categoryHeading {
+  background: #7cbbea;
+  padding: 5px;
+  color: #fff;
+  padding-left: 10px;
+  border-radius: 1px;
+}
+.personalHeading {
+  border-radius: 1px;
+  background: #9d7dde;
+  padding: 5px;
+  color: #fff;
+}
+.project h3 {
+  text-align: center;
+  color: #888;
+}
+.project img {
+  width: 100%;
+  border: 1px solid #ebebeb;
+  height: 200px;
+  opacity: 0.6;
+}
+.project img:hover {
+  opacity: 1.0;
+}
+.posts {
+  list-style: none;
+}
+.posts a {
+  color: #3e9ae0;
+}
+
+.posts a:hover {
+  color: #444;
+}

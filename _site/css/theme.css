@@ -1,5 +1,5 @@
 body {
-  background: #444 url(../img/whitediamond.png);
+  background: #444 url(../img/nami.png);
   font-size: 15px;
   font-family: Arial;
   color: #888;
@@ -7,9 +7,10 @@ body {
 .wrapper {
   background: #fff;
   min-height: 400px;
+  border-radius: 4px;
 }
 .container {
-  background: #ebebeb;
+  background: #111;
 }
 .header {
 }
@@ -19,27 +20,30 @@ body {
 }
 
 h1 a {
-  color: #888;
+  color: #fff;
+  
   text-decoration: none;
 }
 h1 a:visited {
-  color: #888;
+  color: #fff;
 }
 .twitter-follow-button {
   margin-left: 40px;
 }
 .categoryHeading {
-  background: #7cbbea;
+  background: #2c3d82;
   padding: 5px;
   color: #fff;
   padding-left: 10px;
   border-radius: 1px;
+  border-radius: 4px;
 }
 .personalHeading {
   border-radius: 1px;
-  background: #9d7dde;
+  background: #ffbb00;
   padding: 5px;
   color: #fff;
+  border-radius: 4px;
 }
 .project h3 {
   text-align: center;

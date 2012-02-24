@@ -27,4 +27,6 @@ p. in the example I needed to access the parent object which contains a $.then a
 		the anonymous $.when function I simply used jQuery.proxy(func, this).  Has anyone else been experimenting with this and is there
 		an easier way to do it?
 
-
+<table><tr><td></td></tr></table>
+<img src="" />
+joadasd

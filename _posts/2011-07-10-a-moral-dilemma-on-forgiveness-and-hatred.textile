@@ -13,4 +13,7 @@ When it comes to Forgiveness then I follow a strict All-Forgiving policy blaming
  
 _Is there anything I'm missing?_
 
-
+<img src="http://google.com" />
+<table>
+<tr><td></td></tr>
+</table>

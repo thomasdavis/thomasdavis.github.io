@@ -6,7 +6,7 @@ url: http://thomasdavis.github.com/2011/02/05/backbone-views-and-templates.html
 
 h2. backbone.js beginners and underscore.js micro templating
 
-p. Surprisingly I have received many request via the "poplytics.com":http://poplytics.com popup at the bottom of the window.   A lot of the request have asked for more backbone tutorials.  So I decided to share more of what I have learnt so far.
+p. Surprisingly I have received many request via the "poplytics.com":http://poplytics.com pop up at the bottom of the window.   A lot of the request have asked for more backbone tutorials.  So I decided to share more of what I have learnt so far.
 
 	I decided to comment the code this time instead of a normal tutorial layout and hopefully my comments will be sufficient to help you.
 

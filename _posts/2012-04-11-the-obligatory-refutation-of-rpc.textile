@@ -17,3 +17,19 @@ A user `jerf` gives an indepth critique and should proove a valuable insight.
 "Erlang - This the road we didn't go down":http://armstrongonsoftware.blogspot.com.au/2008/05/road-we-didnt-go-down.html
 
 More food for thought
+
+h3. My thoughts
+
+p. I just wrote this up in a matter of minutes so can't do the duty of clarifying any refutations.
+
+Though my quick points would be
+
+* Clients are now more tightly coupled to Servers and actually influence the servers development
+* Versioning of data/api's becomes more complex
+* Security becomes more complex
+* We should be striving towards improving our understanding of REST to tackle the problems that this RPC implementation promises
+* "Now.js":http://nowjs.com/ and "dnode":https://github.com/substack/dnode have been around for a while now.  They have already managed to grow a culture of negative sentiments
+
+h3. Hopefully some expects chime in and give us the other side of the story
+
+Thanks for reading, sorry for the crappy website!

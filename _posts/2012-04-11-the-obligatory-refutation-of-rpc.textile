@@ -4,7 +4,7 @@ title: The obligatory refutation of RPC (Meteor.js)
 ---
 h2. The obligatory refutation of RPC (Meteor.js)
 
-p. Hi guys, just been reading through all the discussion of Meteor.js on Hackernews and noticed that the discussion had very little critique.   So here are just a few articles to think about and at the very least this post hopes to facilitate some discussion of the cons of Meteor.js approach. 
+p. Hi guys, just been reading through all the discussion of Meteor.js on Hackernews and noticed that the discussion had very little critique.   So here are just a few articles to think about and at the very least this post hopes to facilitate some discussion of the cons of the Meteor.js approach. 
 
 "REST：An Alternative to RPC for Web Services Architecture":https://docs.google.com/viewer?a=v&q=cache:LylgA_fL8q4J:web.uvic.ca/~erikj/seng422/resources/rest_paper.pdf+&hl=en&pid=bl&srcid=ADGEESjYHfPLfpUiFhk4xLz6u9tSLXyTtcs6RVvV9ZdSqcNFjPNZ6iKmU5N7Ij0kYphZXmEqAL0VvVYGE9kT14vn7SveDWswWyL71LXn2neko4XEiM5PKaV_ZP5pH2kksIpaPgtcTgmA&sig=AHIEtbSBz804J-e96OlGr7I-LyV4ZDiLBQ&pli=1
 
@@ -27,9 +27,9 @@ Though my quick points would be
 * Clients are now more tightly coupled to Servers and actually influence the servers development
 * Versioning of data/api's becomes more complex
 * Security becomes more complex
-* We should be striving towards improving our understanding of REST to tackle the problems that this RPC implementation promises
+* We should be striving towards improving our understanding of REST to tackle the problems or at least theorizing how RPC can solve them.
 * "Now.js":http://nowjs.com/ and "dnode":https://github.com/substack/dnode have been around for a while now.  They have already managed to grow a culture of negative sentiments
 
-h3. Hopefully some expects chime in and give us the other side of the story
+h3. Hopefully some experts chime in and give us the other side of the story
 
 Thanks for reading, sorry for the crappy website!

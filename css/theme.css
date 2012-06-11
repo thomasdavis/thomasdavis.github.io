@@ -28,7 +28,14 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 }
-.projects-container {
+.panel-container {
+	background: #6b8da1;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding: 20px;
+	border-radius: 6px;
+
 }
 .projects {
 	background: #6b8da1;
@@ -40,6 +47,18 @@ body {
 }
 .last {
 	margin-right: 0 !important;
+}
+.contact-container {
+		background: #3c779a;
+	min-height: 200px;
+	border-radius: 6px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.contact-container ul {
+	margin: 0;
+	padding: 20px;
+	list-style: none;
 }
 .project-container {
 	background: #3c779a;

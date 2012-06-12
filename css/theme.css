@@ -1,8 +1,16 @@
 body {
   font-size: 15px;
-  font-family: Arial;
+  font-family: 'Overlock', cursive;
   color: #ebebeb;
-	background: #7e929f;
+	background: #7e929f ;
+background: #7e929f;
+background-image: url(IMAGE_URL); /* fallback */
+background-image: url(IMAGE_URL), -webkit-gradient(linear, left top, left bottom, from(#7e929f), to(#999999)); /* Saf4+, Chrome */
+background-image: url(IMAGE_URL), -webkit-linear-gradient(top, #ebebeb, #7e929f); /* Chrome 10+, Saf5.1+ */
+background-image: url(IMAGE_URL),    -moz-linear-gradient(top, #444444, #7e929f); /* FF3.6+ */
+background-image: url(IMAGE_URL),     -ms-linear-gradient(top, #7e929f, #999999); /* IE10 */
+background-image: url(IMAGE_URL),      -o-linear-gradient(top, #444444, #999999); /* Opera 11.10+ */
+background-image: url(IMAGE_URL),         linear-gradient(top, #7e929f, #005F98); /* W3C */
 }
 .container {
 	width: 960px;
@@ -20,6 +28,38 @@ body {
 	padding: 0;
 	margin: 0;
 }
+
+/*
+## Links
+```
+<div class="panel-container">
+  <div class="contact-container">
+		<ul>
+		  <li>You should probably not follow me on twitter - <a href="http://twitter.com/neutralthoughts">@neutralthoughts</a></li>
+		  <li>The only place your garanteed to find me - <a href="mailto:thomasalwyndavis@gmail.com">thomasalwyndavis@gmail.com</a></li>
+		  <li>My favorite social network is github - <a href="http://github.com/thomasdavis">@thomasdavis</a></li>
+		</ul>
+	</div>
+</div>
+```
+*/
+
+a, a:visited, a:active {
+	color: #ebebeb;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;	
+}
+/*
+
+## Panels
+```
+    <div class="panel-heading">
+      Projects
+    </div>
+```
+*/
 .panel-heading {
 	background: #60849a;
 	margin-top: 20px;
@@ -37,6 +77,44 @@ body {
 	border-radius: 6px;
 
 }
+.info-container {
+		background: #3c779a;
+	border-radius: 6px;
+	padding: 20px;
+	width: 719px;
+	float: right;
+}
+.me-container {
+	float: left;
+}
+.me {
+	background: url('../img/me.jpg');
+	width: 100px;
+	height: 97px;
+	border-radius: 6px;
+	border: 1px solid #60849A;
+}
+.info-container p {
+	margin: 0;
+}
+/*
+## Projects
+```
+   <div class="projects">
+
+      <div class="project-container">
+        <div class="project">
+          <div class="project-heading">BackboneTutorials.com</div>
+          <div class="project-description">This site is by no means the definitive guide to backbone.js and all corrections and contributions are welcome</div>
+          <a class="project-link" href="http://backbonetutorials.com">
+            <img class="backbonetutorials project-screenshot" />
+          </a>
+        </div>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+```
+*/
 .projects {
 	background: #6b8da1;
 	margin-left: 20px;
@@ -50,15 +128,15 @@ body {
 }
 .contact-container {
 		background: #3c779a;
-	min-height: 200px;
 	border-radius: 6px;
-	margin-right: 20px;
-	margin-bottom: 20px;
 }
 .contact-container ul {
 	margin: 0;
 	padding: 20px;
 	list-style: none;
+}
+.contact-container ul li {
+	line-height: 25px;
 }
 .project-container {
 	background: #3c779a;

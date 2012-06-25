@@ -194,3 +194,6 @@ a:hover {
 .apidocco {
 	background: url("../img/apidocco.png");
 }
+.highlight {
+	color: #444;
+}

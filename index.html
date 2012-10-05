@@ -170,7 +170,7 @@ var displayProfile = function (username) {
     dataType: "jsonp",
     success: function (user) {
       console.log(user);
-      $('.profile').html(_.template($('#profile-template').html(), {user: user}));
+      $('.profile').html(_.template($('#profile-template').html(), {user: user.data}));
       displayUserRepos();
       displayOrganizationRepos();
     }
@@ -179,10 +179,11 @@ var displayProfile = function (username) {
 
 var displayUserRepos = function () {
 
-  $.ajax('https://api.github.com/users/thomasdavis/repos?type=owner&per_page=100', {
+  $.ajax('https://api.github.com/users/thomasdavis/repos?type=owner&per_page=100&callback=?' , {
+    dataType: "jsonp",
     success: function (repos) {
       console.log(repos);
-      $('.my-repos').html(_.template($('#repositories-table').html(), {repos: repos}));
+      $('.my-repos').html(_.template($('#repositories-table').html(), {repos: repos.data}));
       $('.my-repos table').dataTable( {
           "bPaginate": true,
           "bLengthChange": false,
@@ -197,13 +198,15 @@ var displayUserRepos = function () {
 
 };
 var displayOrganizationRepos = function () {
-  $.ajax('https://api.github.com/users/thomasdavis/orgs', {
+  $.ajax('https://api.github.com/users/thomasdavis/orgs'+ '?callback=?', {
+    dataType: "jsonp",
     success: function (orgs) {
       console.log(orgs);
       _.each(orgs, function(org){ 
-          $.ajax('https://api.github.com/orgs/' + org.login + '/repos', {
+          $.ajax('https://api.github.com/orgs/' + org.data.login + '/repos'+ '?callback=?', {
+          dataType: "jsonp",
           success: function (repos) {
-            var tableContainer = $(_.template($('#repositories-table').html(), {repos: repos, org: org}));
+            var tableContainer = $(_.template($('#repositories-table').html(), {repos: repos.data, org: org.data}));
             var table = $('table', tableContainer);
             $('.my-orgs').append(tableContainer);
 

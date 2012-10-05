@@ -202,11 +202,11 @@ var displayOrganizationRepos = function () {
     dataType: "jsonp",
     success: function (orgs) {
       console.log(orgs);
-      _.each(orgs, function(org){ 
-          $.ajax('https://api.github.com/orgs/' + org.data.login + '/repos'+ '?callback=?', {
+      _.each(orgs.data, function(org){ 
+          $.ajax('https://api.github.com/orgs/' + org.login + '/repos'+ '?callback=?', {
           dataType: "jsonp",
           success: function (repos) {
-            var tableContainer = $(_.template($('#repositories-table').html(), {repos: repos.data, org: org.data}));
+            var tableContainer = $(_.template($('#repositories-table').html(), {repos: repos.data, org: org}));
             var table = $('table', tableContainer);
             $('.my-orgs').append(tableContainer);
 

@@ -1,154 +1,232 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-
-  <title>Thomas Davis - Web Developer</title>
+  <title>API Engine - Open source</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Thomas davis is an awesome guy">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css" />
+</css>
 <body>
-  <!-- Initially populated by templates/layout.html -->
-  <div class="containera">
-    <div class="bio-container">
-      <div class="bio">
-        <h1>Thomas Davis - Web Developer</h1>
-  
-      </div>
-    </div>
+<div class="container">
+  <div class="profile"></div>
+  <hr />
+  <h3>My Repostitories</h3>
+  <div class="my-repos"></div> 
+  <hr />
+  <h3>My Organizations</h3>
+  <div class="my-orgs"></div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.1/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.3/jquery.dataTables.min.js"></script>
 
-
-
-    <div class="panel-container">
-      <div class="info-container">
-
-        <p>Hi visitor, <br /> I've tried hard to make this website visually appealing but to no avail.  Hopefully I make up for my color blindness with open source contributions! Stay strong and safe!</p>
-    </div>
-      <div class="me-container"><div class="me"></div></div>
-      <div style="clear: both;"></div>
-    </div>
-
-
-
-
-
-
-
-<!--  <div class="panel-heading" style="background: #f18404;">
-      Looking for work! remote part time work / short contracts
-    </div>
--->
-
-  <div class="panel-heading">
-      Contact - Get in touch!
-    </div>
-
-    <div class="panel-container">
-      <div class="contact-container">
-
-      <ul>
-        <li>You probably should not follow me on twitter - <a href="http://twitter.com/neutralthoughts">@neutralthoughts</a></li>
-        <li>The only place you're guaranteed to find me - <a href="mailto:thomasalwyndavis@gmail.com">thomasalwyndavis@gmail.com</a></li>
-        <li>My favorite social network is github - <a href="http://github.com/thomasdavis">@thomasdavis</a></li>
-      </ul>
-    </div>
-    </div>
-
-    <div class="panel-heading">
-      Projects - A lot of work!
-    </div>
-    <div class="projects-container">
-
-      <div class="projects">
-
-                <div class="project-container">
-          <div class="project">
-            <div class="project-heading">BackboneTutorials.com</div>
-            <div class="project-description">This site is by no means the definitive guide to backbone.js and all corrections and contributions are welcome</div>
-            <a class="project-link" href="http://backbonetutorials.com">
-              <img class="backbonetutorials project-screenshot" />
-            </a>
-          </div>
-        </div>
-        <div class="project-container">
-          <div class="project">
-            <div class="project-heading">Cdnjs.com</div>
-            <div class="project-description">Everyone loves the Google CDN right? Even Microsoft runs their own CDN.
-
-The problem is, they only host the most popular libraries. 
-
-We host the other stuff.</div> 
-
-            <a class="project-link" href="http://cdnjs.com">
-              <img class="cdnjs project-screenshot" />
-            </a>
-          </div>
-        </div>
-                        <div class="project-container last">
-          <div class="project">
-            <div class="project-heading">KaleiStyleguide.com</div>
-            <div class="project-description">This project aims at making sure your style sheets are fully documented whilst being synchronized with your webpages styles. </div>
-
-            <a class="project-link" href="http://kaleistyleguide.com">
-              <img class="kaleistyleguide project-screenshot" />
-            </a>
-          </div>
-        </div>
-
-        <div class="project-container">
-          <div class="project">
-            <div class="project-heading">Protosal.com</div>
-            <div class="project-description">Fast, easy and fluid. Generate proposals using templates and variables to save time!</div>
-
-            <a class="project-link" href="http://protosal.com">
-              <img class="protosal project-screenshot" />
-            </a>
-          </div>
-        </div>
-
-                <div class="project-container last">
-          <div class="project">
-            <div class="project-heading">BackboneBoilerplate.com</div>
-            <div class="project-description">This is a self-documenting example app useful for quick developer and/or learning backbone.js.</div>
-
-            <a class="project-link" href="http://backboneboilerplate.com">
-              <img class="backboneboilerplate project-screenshot" />
-            </a>
-          </div>
-        </div>
-
-     
-        <div style="clear: both;"></div>
-      </div>
-    </div>
-
-<a href="http://seo.apiengine.io">seo server</a>
-  
-
-
+<script type="text/template" id="profile-template">
+<h1 style="margin-top: 40px;"><%= user.name %></h1>
+<hr />
+<div class="row">
+  <div class="span8">
+  <img style="float:left; margin-right: 20px;width: 80px; max-width:80px; height: 80px;" src="http://www.gravatar.com/avatar/<%= user.gravatar_id %>" class="img-polaroid">
+    <%= user.company %><br/ >
+    <%= user.location %><br />
+    <%= user.email %><br />
+    For hire: <%= user.hireable %>
   </div>
-  
+  <div class="span3">
+    <a href="http://twitter.com/neutralthoughts" class="twitter-follow-button">Follow @neutralthoughts</a></td></tr>
+    <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+  </div>
+</div>
+</script>
+<script type="text/template" id="repositories-table">
+  <hr />
+  <% if( typeof org !== 'undefined') { %>
+<img style="float:left; margin-right: 20px;height: 80px; width: 80px;" src="<%= org.avatar_url %>" class="img-polaroid"  />
+    <h2 style="line-height: 80px;"><a href="<%= org.url %>"><%= org.login %></a></h2>
+    <div style="clear: both;"></div>
+  <hr />
 
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+
+  <% } %>
+  <table class="table libraries table-striped">
+    <thead>
+      <tr>
+        <th>Name</th><th>Language</th><th>Description</th><th>Forks</th><th>Watchers</th><th>Open Issues</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% _.each(repos, function(repo){ %>
+      <tr>
+        <td><a href="<%= repo.url %>"><%= repo.name %></a></td>
+        <td><%= repo.language %></td>
+        <td><%= repo.description.substr(0,50) %>...</td>
+        <td><%= repo.forks %></td>
+        <td><%= repo.watchers %></td>
+        <td><%= repo.open_issues %></td>
+
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+</script>
+
+
+<a href="https://github.com/thomasdavis/thomasdavis.github.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+<script>
+$.fn.dataTableExt.oApi.fnPagingInfo = function ( oSettings )
+{
+    return {
+        "iStart":         oSettings._iDisplayStart,
+        "iEnd":           oSettings.fnDisplayEnd(),
+        "iLength":        oSettings._iDisplayLength,
+        "iTotal":         oSettings.fnRecordsTotal(),
+        "iFilteredTotal": oSettings.fnRecordsDisplay(),
+        "iPage":          Math.ceil( oSettings._iDisplayStart / oSettings._iDisplayLength ),
+        "iTotalPages":    Math.ceil( oSettings.fnRecordsDisplay() / oSettings._iDisplayLength )
+    };
+}
  
+/* Bootstrap style pagination control */
+$.extend( $.fn.dataTableExt.oPagination, {
+    "bootstrap": {
+        "fnInit": function( oSettings, nPaging, fnDraw ) {
+            var oLang = oSettings.oLanguage.oPaginate;
+            var fnClickHandler = function ( e ) {
+                e.preventDefault();
+                if ( oSettings.oApi._fnPageChange(oSettings, e.data.action) ) {
+                    fnDraw( oSettings );
+                }
+            };
+ 
+            $(nPaging).addClass('pagination').append(
+                '<ul>'+
+                    '<li class="prev disabled"><a href="#">&larr; '+oLang.sPrevious+'</a></li>'+
+                    '<li class="next disabled"><a href="#">'+oLang.sNext+' &rarr; </a></li>'+
+                '</ul>'
+            );
+            var els = $('a', nPaging);
+            $(els[0]).bind( 'click.DT', { action: "previous" }, fnClickHandler );
+            $(els[1]).bind( 'click.DT', { action: "next" }, fnClickHandler );
+        },
+ 
+        "fnUpdate": function ( oSettings, fnDraw ) {
+            var iListLength = 5;
+            var oPaging = oSettings.oInstance.fnPagingInfo();
+            var an = oSettings.aanFeatures.p;
+            var i, j, sClass, iStart, iEnd, iHalf=Math.floor(iListLength/2);
+ 
+            if ( oPaging.iTotalPages < iListLength) {
+                iStart = 1;
+                iEnd = oPaging.iTotalPages;
+            }
+            else if ( oPaging.iPage <= iHalf ) {
+                iStart = 1;
+                iEnd = iListLength;
+            } else if ( oPaging.iPage >= (oPaging.iTotalPages-iHalf) ) {
+                iStart = oPaging.iTotalPages - iListLength + 1;
+                iEnd = oPaging.iTotalPages;
+            } else {
+                iStart = oPaging.iPage - iHalf + 1;
+                iEnd = iStart + iListLength - 1;
+            }
+ 
+            for ( i=0, iLen=an.length ; i<iLen ; i++ ) {
+                // Remove the middle elements
+                $('li:gt(0)', an[i]).filter(':not(:last)').remove();
+ 
+                // Add the new list items and their event handlers
+                for ( j=iStart ; j<=iEnd ; j++ ) {
+                    sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+                    $('<li '+sClass+'><a href="#">'+j+'</a></li>')
+                        .insertBefore( $('li:last', an[i])[0] )
+                        .bind('click', function (e) {
+                            e.preventDefault();
+                            oSettings._iDisplayStart = (parseInt($('a', this).text(),10)-1) * oPaging.iLength;
+                            fnDraw( oSettings );
+                        } );
+                }
+ 
+                // Add / remove disabled classes from the static elements
+                if ( oPaging.iPage === 0 ) {
+                    $('li:first', an[i]).addClass('disabled');
+                } else {
+                    $('li:first', an[i]).removeClass('disabled');
+                }
+ 
+                if ( oPaging.iPage === oPaging.iTotalPages-1 || oPaging.iTotalPages === 0 ) {
+                    $('li:last', an[i]).addClass('disabled');
+                } else {
+                    $('li:last', an[i]).removeClass('disabled');
+                }
+            }
+        }
+    }
+} );
+
+var displayProfile = function (username) {
+  $.ajax('https://api.github.com/users/' + username, {
+    success: function (user) {
+      console.log(user);
+      $('.profile').html(_.template($('#profile-template').html(), {user: user}));
+      displayUserRepos();
+      displayOrganizationRepos();
+    }
+  });
+};
+
+var displayUserRepos = function () {
+
+  $.ajax('https://api.github.com/users/thomasdavis/repos?type=owner&per_page=100', {
+    success: function (repos) {
+      console.log(repos);
+      $('.my-repos').html(_.template($('#repositories-table').html(), {repos: repos}));
+      $('.my-repos table').dataTable( {
+          "bPaginate": true,
+          "bLengthChange": false,
+          "bFilter": false,
+          "bInfo": true,
+          "bAutoWidth": false,
+          "aaSorting": [[ 4, "desc" ]],
+          "sPaginationType": "bootstrap"
+      }  );
+    }
+  });
+
+};
+var displayOrganizationRepos = function () {
+  $.ajax('https://api.github.com/users/thomasdavis/orgs', {
+    success: function (orgs) {
+      console.log(orgs);
+      _.each(orgs, function(org){ 
+          $.ajax('https://api.github.com/orgs/' + org.login + '/repos', {
+          success: function (repos) {
+            var tableContainer = $(_.template($('#repositories-table').html(), {repos: repos, org: org}));
+            var table = $('table', tableContainer);
+            $('.my-orgs').append(tableContainer);
+
+            $(table).dataTable( {
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bInfo": true,
+                "bAutoWidth": false,
+                "aaSorting": [[ 4, "desc" ]],
+                "sPaginationType": "bootstrap"
+            }  );
+          }
+        });
+
+      })
+    }
+  }); 
+}
+
+var username = 'thomasdavis'
+displayProfile(username);
+</script>
     <script src="http://static.getclicky.com/js" type="text/javascript"></script>
     <script type="text/javascript">try{ clicky.init(66379121); }catch(err){}</script>
-    <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66379121ns.gif" /></p></noscript>
-    
-<script type='text/javascript'>
-var _glc =_glc || [];
-_glc.push('ag9jb250YWN0dXN3aWRnZXRyDwsSB3dpZGdldHMYq7ZNDA');
-var glcpath = (('https:' == document.location.protocol) ? 'https://contactuswidget.appspot.com/livily/browser/' : 'http://gae.clickdesk.com/livily/browser/');
-var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
-var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; glcspt.async = true;glcspt.src = glcpath + 'livechat.js';
-var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
-</script> 
-
+    <noscript><p><img alt="Clicky" width="
 </body>
 </html> 

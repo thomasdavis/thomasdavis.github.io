@@ -165,8 +165,9 @@ $.extend( $.fn.dataTableExt.oPagination, {
 } );
 
 var displayProfile = function (username) {
-  $.ajax('https://api.github.com/users/' + username, {
+  $.ajax('https://api.github.com/users/' + username + '?callback=?', {
     crossDomain: true,
+    dataType: "jsonp",
     success: function (user) {
       console.log(user);
       $('.profile').html(_.template($('#profile-template').html(), {user: user}));

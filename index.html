@@ -166,6 +166,7 @@ $.extend( $.fn.dataTableExt.oPagination, {
 
 var displayProfile = function (username) {
   $.ajax('https://api.github.com/users/' + username, {
+    crossDomain: true,
     success: function (user) {
       console.log(user);
       $('.profile').html(_.template($('#profile-template').html(), {user: user}));

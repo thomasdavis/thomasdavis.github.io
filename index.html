@@ -56,7 +56,7 @@
     <tbody>
       <% _.each(repos, function(repo){ %>
       <tr>
-        <td><a href="<%= repo.url %>"><%= repo.name %></a></td>
+        <td><a href="<%= repo.html_url %>"><%= repo.name %></a></td>
         <td><%= repo.language %></td>
         <td><%= repo.description.substr(0,50) %>...</td>
         <td><%= repo.forks %></td>

@@ -1,4 +1,11 @@
+/*
+# Thomas Davis
+
+My style guide stuff
+
+### Styles
+
+*/
 @import url("normalize.css");
-@import url("grid.css");
-@import url("icons.css");
+@import url("http://fonts.googleapis.com/css?family=Overlock");
 @import url("theme.css");

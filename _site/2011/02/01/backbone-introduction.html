@@ -20,7 +20,7 @@
   <div class="wrapper span-22 push-1">
 
     <div class="page span-20 push-1">
-<a href="/">Back to home</a>
+<a href="/" style="margin-top: 10px;">Back to home</a>
 <br />
 <p><img src="/images/backbone.png" alt="" /></p>
 <h2>Backbone.js Tutorial &#8211; by noob for noobs</h2>
@@ -50,9 +50,7 @@
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre>
-</div>
-<p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/backbone-101/">here</a> and downloaded <br />
+</code></pre></div><p>For those of you who are lazy the full example can be viewed <a href="http://thomasdavis.github.com/examples/backbone-101/">here</a> and downloaded <br />
 <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101">here</a></p>
 <h3>Setting up the main view</h3>
 <p>Each view has a <span class="caps">HTML</span> <span class="caps">DOM</span> element associated with it. You can read more about why <a href="http://documentcloud.github.com/backbone/#View-el">here</a> .<br />
@@ -70,9 +68,7 @@ Because this is our master view we are just going to associate the view with our
 <span class="p">});</span>
 <span class="kd">var</span> <span class="nx">appview</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppView</span><span class="p">;</span>
 <span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
-</code></pre>
-</div>
-<p>So we just wrapped our Backbone code with jQuery to make sure the page has loaded correctly. Then we create our main application view by extending Backbone and passing a <span class="caps">JSON</span> object with our options. We specified &#8220;body&#8221; to be the associated element for this view.</p>
+</code></pre></div><p>So we just wrapped our Backbone code with jQuery to make sure the page has loaded correctly. Then we create our main application view by extending Backbone and passing a <span class="caps">JSON</span> object with our options. We specified &#8220;body&#8221; to be the associated element for this view.</p>
 <p>The events property is very powerful and lets us attach listeners to our views.   In the example above we have attached a click listener to our button with id &#8220;add-friend&#8221;. Read more about events <a href="http://documentcloud.github.com/backbone/#View-delegateEvents">here</a></p>
 <p>After we have setup our AppView, we can just call to initiate it at anytime.</p>
 <h3>Collecting the Models</h3>
@@ -120,9 +116,7 @@ Because this is our master view we are just going to associate the view with our
 <span class="kd">var</span> <span class="nx">appview</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AppView</span><span class="p">;</span>
 
 <span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
-</code></pre>
-</div>
-<h2><a href="http://thomasdavis.github.com/examples/backbone-101">Demo</a><br />
+</code></pre></div><h2><a href="http://thomasdavis.github.com/examples/backbone-101">Demo</a><br />
     <a href="https://github.com/thomasdavis/thomasdavis.github.com/tree/master/examples/backbone-101">Source</a></h2>
 <h3>Conclusion</h3>
 <p>I hope this helps anyone trying to pick it up.   I don&#8217;t mind answering any questions that I have the ability to answer.</p>
@@ -130,6 +124,7 @@ Because this is our master view we are just going to associate the view with our
 <p>p.s.  Would love some insight into <span class="caps">MVVM</span>, <span class="caps">MVC</span> etc</p>
 <p>Update: 	Changed the code to append the elements from the view and not the Model/Collection. The <a href="http://news.ycombinator.com/item?id=2158011">problem</a> was described on ycombinator by emehrkay</p>
 <p>Update 2: A user called <a href="http://twitter.com/svenlito">svnlto</a> had a pull request to fix up the example code to implement better coding practises, he was spot on so I merged his request into the master branch. You can view the pull request <a href="https://github.com/thomasdavis/thomasdavis.github.com/pull/1" target="_blank">here</a>.</p>
+<h2><a href="/2011/02/01/backbone-introduction.html"><span class="caps">API</span> Engine &#8211; Collaborative Restful <span class="caps">API</span> Tool</a></h2>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -157,20 +152,5 @@ Because this is our master view we are just going to associate the view with our
   
 </div>
 
-
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
- 
-    <script src="http://static.getclicky.com/js" type="text/javascript"></script>
-    <script type="text/javascript">try{ clicky.init(66379121); }catch(err){}</script>
-    <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66379121ns.gif" /></p></noscript>
-    
-<script type='text/javascript'>
-var _glc =_glc || [];
-_glc.push('ag9jb250YWN0dXN3aWRnZXRyDwsSB3dpZGdldHMYq7ZNDA');
-var glcpath = (('https:' == document.location.protocol) ? 'https://contactuswidget.appspot.com/livily/browser/' : 'http://gae.clickdesk.com/livily/browser/');
-var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
-var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; glcspt.async = true;glcspt.src = glcpath + 'livechat.js';
-var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
-</script>    
 </body>
 </html>

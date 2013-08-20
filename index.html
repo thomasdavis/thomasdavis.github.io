@@ -12,8 +12,6 @@
   <h3>My Repositories</h3>
   <div class="my-repos"></div> 
   <hr />
-  <h3>My Organizations</h3>
-  <div class="my-orgs"></div>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.1/underscore-min.js"></script>
@@ -162,27 +160,26 @@ $.extend( $.fn.dataTableExt.oPagination, {
         }
     }
 } );
-
+/*
 var displayProfile = function (username) {
   $.ajax('https://api.github.com/users/' + username + '?callback=?', {
     crossDomain: true,
     dataType: "jsonp",
     success: function (user) {
       console.log(user);
-      $('.profile').html(_.template($('#profile-template').html(), {user: user.data}));
-      displayUserRepos();
-      displayOrganizationRepos();
     }
   });
 };
-
+*/
 var displayUserRepos = function () {
 
-  $.ajax('https://api.github.com/users/thomasdavis/repos?type=owner&per_page=100&callback=?' , {
-    dataType: "jsonp",
+  $.ajax('http://d2a0f5wdso4x2s.cloudfront.net/?username=thomasdavis' , {
+    dataType: "json",
     success: function (repos) {
       console.log(repos);
-      $('.my-repos').html(_.template($('#repositories-table').html(), {repos: repos.data}));
+      $('.profile').html(_.template($('#profile-template').html(), {user: repos.profile}));
+
+      $('.my-repos').html(_.template($('#repositories-table').html(), {repos: repos.repos}));
       $('.my-repos table').dataTable( {
           "bPaginate": true,
           "bLengthChange": false,
@@ -196,40 +193,9 @@ var displayUserRepos = function () {
   });
 
 };
-var displayOrganizationRepos = function () {
-  $.ajax('https://api.github.com/users/thomasdavis/orgs'+ '?callback=?', {
-    dataType: "jsonp",
-    success: function (orgs) {
-      console.log(orgs);
-      _.each(orgs.data, function(org){ 
-          $.ajax('https://api.github.com/orgs/' + org.login + '/repos'+ '?callback=?', {
-          dataType: "jsonp",
-          success: function (repos) {
-            var tableContainer = $(_.template($('#repositories-table').html(), {repos: repos.data, org: org}));
-            var table = $('table', tableContainer);
-            $('.my-orgs').append(tableContainer);
+      displayUserRepos();
 
-            $('.my-orgs table').dataTable( {
-                "bPaginate": true,
-                "bLengthChange": false,
-                "bFilter": false,
-                "bInfo": true,
-                "bAutoWidth": false,
-                "aaSorting": [[ 4, "desc" ]],
-                "sPaginationType": "bootstrap"
-            }  );
-          }
-        });
-
-      })
-    }
-  }); 
-}
-
-var username = 'thomasdavis'
-displayProfile(username);
 </script>
-<a title="Real Time Web Analytics" href="http://clicky.com/100641309"><img alt="Real Time Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(100641309); }catch(e){}</script>
 <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100641309ns.gif" /></p></noscript>

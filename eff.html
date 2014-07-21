@@ -1,0 +1,644 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta property="og:url" content="https://www.eff.org/deeplinks/2014/07/building-open-wireless-router" />
+<meta property="og:image:secure_url" content="https://www.eff.org/files/2014/01/24/eff-logo-plain-72.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eff" />
+<link rel="shortcut icon" href="https://www.eff.org/sites/all/themes/frontier/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="image_src" href="https://www.eff.org/sites/all/themes/frontier/images/eff-logo-opengraph-noalpha-square.png?v=1" />
+<meta name="keywords" content="Open Wireless, Security" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Electronic Frontier Foundation" />
+<meta name="description" content="EFF is releasing an experimental hacker alpha release of wireless router software specifically designed to support secure, shareable Open Wireless networks. We will be officially launching the Open Wireless Router today at the HOPE X (Hackers on Planet Earth) conference in New York City, aiming to bring aboard members of the hacker community." />
+<link rel="shortlink" href="/node/81453" />
+<meta property="og:title" content="Calling All Hackers: Help Us Build an Open Wireless Router" />
+<meta property="og:description" content="EFF is releasing an experimental hacker alpha release of wireless router software specifically designed to support secure, shareable Open Wireless networks. We will be officially launching the Open Wireless Router today at the HOPE X (Hackers on Planet Earth) conference in New York City, aiming to bring aboard members of the hacker community." />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<meta property="og:image" content="https://www.eff.org/sites/all/themes/frontier/images/eff-logo-opengraph-noalpha-square.png?v=1" />
+<link rel="canonical" href="https://www.eff.org/deeplinks/2014/07/building-open-wireless-router" />
+  <title>Calling All Hackers: Help Us Build an Open Wireless Router | Electronic Frontier Foundation</title>
+  <link type="text/css" rel="stylesheet" href="https://www.eff.org/files/css/css_r7mP1rcWJQ63n8Fdr5p_bAp2cVsr4IDoQbtzGzliANo.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.eff.org/files/css/css_pbm0lsQQJ7A7WCCIMgxLho6mI_kBNgznNUWmTWcnfoE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.eff.org/files/css/css_2WDS6rAKK7kwjEKZtVIbWvbcKp7kyhaaJDneFaYyT34.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.eff.org/files/css/css_f5-AdChCxg-hr6fH70YSdXbnn6hle43HAZDU32S_35Y.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.eff.org/files/css/css_Y6DQJZDqgUHzZE27E8CpsCSm027OEQZWVcV_m3FEvdE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.eff.org/files/css/css_tac-6FWJqlYSecIaWzTPfIMPkxVjs1ZZA9xM8tIgXBk.css" media="print" />
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+/**
+ * @licstart The following is the entire license notice for the JavaScript
+ * code in this page.
+ *
+ * Copyright (C) 2014  Electronic Frontier Foundation.
+ *
+ * The JavaScript code in this page is free software: you can redistribute
+ * it and/or modify it under the terms of the GNU General Public License
+ * (GNU GPL) as published by the Free Software Foundation, either version 3
+ * of the License, or (at your option) any later version.  The code is
+ * distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU GPL
+ * for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you may
+ * distribute non-source (e.g., minimized or compacted) forms of that code
+ * without the copy of the GNU GPL normally required by section 4, provided
+ * you include this license notice and a URL through which recipients can
+ * access the Corresponding Source.
+ *
+ * @licend The above is the entire license notice for the JavaScript code
+ * in this page.
+ */
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.eff.org/files/js/js_0gj6QcpfRH2jzTbCQqf7kEkm4MXY0UA_sRhwPc8jC1o.js"></script>
+<script type="text/javascript" src="https://www.eff.org/files/js/js_BREHwrtOflVeor_1Bh1zMpVZ9rRox5vxpovPrJhY2UI.js"></script>
+<script type="text/javascript" src="https://www.eff.org/files/js/js_LakOVyAVjkEPbb_v5Fr9hgMGXkg51zVtGiGo1YwLN44.js"></script>
+<script type="text/javascript" src="https://www.eff.org/files/js/js_aRe4mjwNkRq0UugCuQDnvErzl6bmOFX_DLCke_FfyYc.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"frontier","theme_token":"fOv_iRwP3q1UpPSBLGR1BKLewW9vJvyv9ZiiQ_9xmbM","js":{"0":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/custom\/eff_whyb\/js\/whyb.js":1,"sites\/all\/modules\/caption_filter\/js\/caption-filter.js":1,"sites\/all\/modules\/mytube\/mytube.js":1,"sites\/all\/modules\/lightbox2\/js\/lightbox.js":1,"sites\/all\/themes\/frontier\/deeplinks_share\/deeplinks_share.js":1,"sites\/all\/themes\/frontier\/js\/no_has_js.js":1,"sites\/all\/themes\/frontier\/js\/jquery.mailcheck.min.js":1,"sites\/all\/themes\/frontier\/js\/do_mailcheck.js":1,"sites\/all\/themes\/frontier\/js\/placeholder.js":1},"css":{"sites\/all\/themes\/frontier\/css\/reset.css":1,"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/footnotes\/footnotes.css":1,"modules\/book\/book.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mytube\/mytube.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/video_filter\/video_filter.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/caption_filter\/caption-filter.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/lexicon\/css\/lexicon.css":1,"sites\/all\/modules\/lightbox2\/css\/lightbox.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/wysiwyg_linebreaks\/wysiwyg_linebreaks.css":1,"sites\/all\/modules\/panels\/plugins\/layouts\/twocol_bricks\/twocol_bricks.css":1,"sites\/all\/modules\/custom\/eff_library\/plugins\/layouts\/eff_site_layout\/eff-site-layout.css":1,"sites\/all\/themes\/frontier\/deeplinks_share\/deeplinks_share.css":1,"sites\/all\/themes\/frontier\/css\/layout.css":1,"sites\/all\/themes\/frontier\/css\/html-elements.css":1,"sites\/all\/themes\/frontier\/css\/frontier.css":1,"sites\/all\/themes\/frontier\/css\/wysiwyg.css":1,"sites\/all\/themes\/frontier\/timeline\/css\/style.css":1,"sites\/all\/themes\/frontier\/css\/print.css":1}},"lightbox2":{"rtl":"0","file_path":"\/(\\w\\w\/)public:\/","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":true,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":false,"disable_resize":false,"disable_zoom":false,"force_show_nav":false,"show_caption":true,"loop_items":false,"node_link_text":"View Image Details","node_link_target":false,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003Ca href=\u0022#\u0022 onclick=\u0022hideLightbox(); return FALSE;\u0022\u003E\u003Ckbd\u003Ex\u003C\/kbd\u003E\u003C\/a\u003E to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":true,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":true,"slideshow_automatic_exit":true,"show_play_pause":true,"pause_on_next_click":false,"pause_on_previous_click":true,"loop_slides":false,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":false}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-81453 node-type-blog" >
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page">
+  <div id="container-wrapper">
+    <div id="container">
+      <div id="header-wrapper">
+        <div class="header-content">
+          <div class="panel-pane pane-pane-header"  >
+  
+      
+  
+  <div class="pane-content">
+    <div id="header">
+  <div class="section clearfix">
+    <div id="logo-title">
+
+              <a href="/" title="Home" rel="home" id="logo">
+          <img src="https://www.eff.org/sites/all/themes/frontier/images/logo_full.png" alt="Home" />
+        </a>
+      
+      <div id="name-and-slogan">
+                              <div id="site-name"><strong>
+              <a href="/" title="Home" rel="home"><span>Electronic Frontier Foundation</span></a>
+            </strong></div>
+                  
+                  <div id="site-slogan">Defending your rights in the digital world</div>
+              </div> <!-- /name-and-slogan -->
+    </div> <!-- /logo-title -->
+
+      </div> <!-- /section -->
+</div> <!-- /header -->
+  </div>
+
+  
+  </div>
+        </div>
+        <div class="search-box">
+          <div class="panel-pane pane-block pane-search-form"  >
+  
+      
+  
+  <div class="pane-content">
+    <form action="/deeplinks/2014/07/building-open-wireless-router" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-3rMAkGaF3cs2bb6V1MHF68G9NJjZnZzYweMFu2Bhs6E" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+
+  
+  </div>
+        </div>  
+      </div>
+      <div id="main-menu-nav" class="navigation">
+          <div class="panel-pane pane-pane-navigation"  >
+  
+      
+  
+  <div class="pane-content">
+    <div id="navigation" class="menu withprimary ">
+      <div id="primary" class="clear-block">
+      <h2>Main menu</h2><ul id="main-menu" class="links clearfix inline"><li class="menu-925 first"><a href="/" title="">Home</a></li>
+<li class="menu-1746"><a href="/about">About</a></li>
+<li class="menu-689"><a href="/issues">Our Work</a></li>
+<li class="menu-301 active-trail"><a href="/deeplinks" class="active-trail">Deeplinks Blog</a></li>
+<li class="menu-302"><a href="/press">Press Room</a></li>
+<li class="menu-303"><a href="/action" title="">Take Action</a></li>
+<li class="menu-926 last"><a href="https://supporters.eff.org/shop" title="">Shop</a></li>
+</ul>    </div>
+  
+</div> <!-- /navigation -->
+  </div>
+
+  
+  </div>
+      </div>
+      <div id="breadcrumb">
+                </div>
+      <div id="main">
+        <div class="layout-main-content">
+          <div class="panel-pane pane-pane-messages"  >
+  
+      
+  
+  <div class="pane-content">
+      <div class="tabs"></div>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-page-content"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="panel-display panel-2col-bricks clearfix" >
+  <div class="panel-panel panel-col-top">
+    <div class="inside"><div class="panel-pane pane-eff-share-blog"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="share-links"><a class="share-twitter" href="https://twitter.com/home?status=Calling%20All%20Hackers%3A%20Help%20Us%20Build%20an%20Open%20Wireless%20Router%20https%3A//www.eff.org/deeplinks/2014/07/building-open-wireless-router%20via%20%40EFF" target="_blank"><img src="/sites/all/themes/frontier/images/share/twitter16.png" alt="Share on Twitter" /></a><a class="share-facebook" href="https://www.facebook.com/share.php?u=https%3A//www.eff.org/deeplinks/2014/07/building-open-wireless-router&title=Calling%20All%20Hackers%3A%20Help%20Us%20Build%20an%20Open%20Wireless%20Router" target="_blank"><img src="/sites/all/themes/frontier/images/share/facebook.gif" alt="Share on Facebook" /></a><a class="share-google" href="https://plus.google.com/share?url=https%3A//www.eff.org/deeplinks/2014/07/building-open-wireless-router" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="/sites/all/themes/frontier/images/share/gplus-16.png" alt="Share on Google+"/></a><a class="share-diaspora" href="http://sharetodiaspora.github.com/?title=Calling%20All%20Hackers%3A%20Help%20Us%20Build%20an%20Open%20Wireless%20Router&url=https%3A//www.eff.org/deeplinks/2014/07/building-open-wireless-router" target="_blank"><img src="/sites/all/themes/frontier/images/share/diaspora-16.png" alt="Share on Diaspora" /></a><a class="share-print" href="javascript:window.print()" target="_blank"><img src="/sites/all/themes/frontier/images/share/print.png" width="16" height="16" alt="Print" /></a><a class="share-email" href="mailto:?subject=Calling%20All%20Hackers%3A%20Help%20Us%20Build%20an%20Open%20Wireless%20Router&body=EFF%20is%20releasing%20an%20experimental%20hacker%20alpha%20release%20of%20wireless%20router%20software%20specifically%20designed%20to%20support%20secure%2C%20shareable%20Open%20Wireless%20networks.%20We%20will%20be%20officially%20launching%20the%20Open%20Wireless%20Router%20today%20at%20the%20HOPE%20X%20%28Hackers%20on%20Planet...%0A%0Ahttps%3A//www.eff.org/deeplinks/2014/07/building-open-wireless-router%0A" target="_blank"><img src="/sites/all/themes/frontier/images/share/email.gif" alt="Email This" /></a></div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-eff-author"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="dateauthor">July 20, 2014 | By <a href="/about/staff/peter-eckersley">Peter Eckersley</a>  and <a href="/about/staff/jacob-hoffman-andrews">Jacob Hoffman-Andrews</a>  and <a href="/about/staff/ranga-krishnan">Ranga Krishnan</a> </div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-eff-node-title"  >
+  
+      
+  
+  <div class="pane-content">
+    <h2 class="node-title">Calling All Hackers: Help Us Build an Open Wireless Router</h2>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-entity-field pane-node-body"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>EFF is releasing an experimental <a href="https://openwireless.org/router/download">hacker alpha release</a> of wireless router software specifically designed to support secure, shareable <a href="https://openwireless.org/">Open Wireless networks</a>. We will be officially launching the Open Wireless Router today at the <a href="http://x.hope.net/schedule.html#whythefutu">HOPE X (Hackers on Planet Earth)</a> conference in New York City, aiming to bring aboard members of the hacker community. This release is a work in progress and is intended only for developers and people willing to deal with the bleeding edge.</p>
+<p>The software aims to do several things that existing routers don't do well—or don't do at all. We are beginning a journey that we hope will attract supporters and fellow travelers to help reach the following goals:<a class="see-footnote" id="footnoteref1_akgrco0" title="For further details, questions, and offers of assistance, please start with the FAQ and Github pages. If that does not suffice or for press inquiries please contact Ranga Krishnan" href="#footnote1_akgrco0">1</a></p>
+<ul><li>Allow small business and home users to easily enable an open network, so guests and passersby can get an Internet connection if they need one, while keeping a password-locked WPA2 network for themselves and their friends or coworkers.</li>
+<li>Let you share a bounded portion of your bandwidth on the open network, so guest users cannot slow down your Internet connection or use a large portion of your monthly quota.<a class="see-footnote" id="footnoteref2_a07a3z9" title="The prototype implementation includes a defined ceiling for instantaneous guest throughput as well as a long-term quota. In the future, we will implement a dynamic ceiling so that while you aren't using your network, guests can temporarily borrow it at full speed if enough quota remains available." href="#footnote2_a07a3z9">2</a></li>
+<li>Provide state-of-the-art network queuing, so most users can expect an improved Internet experience—especially with latency-sensitive applications—compared to what commonly available consumer grade routers are delivering today.</li>
+<li>Offer a minimalist, secure, and elegant Web user interface to set up and configure the router. Advanced, non-minimalist administrative options are accessible by SSH.</li>
+<li>Advance the state of the art in consumer Wi-Fi router security and begin turning back the growing tide of attacks against them. Most or all existing router software is <a href="https://www.sohopelesslybroken.com/">full of XSS and CSRF vulnerabilities</a>, and we want to change that.</li>
+<li>Include a secure software auto-update mechanism. In addition to using HTTPS, firmware signatures and metadata are fetched via Tor to make targeted update attacks very difficult.</li>
+</ul><p>We are offering this hacker alpha release to engage enthusiastic technical users who would like to help us test, develop, improve, and harden the Open Wireless Router. Currently the software runs on one specific model of hardware (the Netgear WNDR3800) and is based on the <a href="https://www.bufferbloat.net/projects/cerowrt">CeroWRT</a> project. If you have a WNDR3800 router, you can get the developer preview image <a href="https://openwireless.org/router/download">here</a> and learn how to flash it <a href="https://openwireless.org/router/installation">here</a>. If you'd like to hack on the code base, you can find code and instructions on building it <a href="https://github.com/EFForg/OpenWireless">at Github</a>.</p>
+<p>This Open Wireless Router prototype is made possible by the generous contribution of project resources and developers from ThoughtWorks, which came about through their <a href="http://www.thoughtworks.com/social-impact">exemplary social impact program</a>. We are also very grateful for assistance from Dave Täht of CeroWRT and the Wi-Fi router hackers at Independent Security Evaluators (ISE).</p>
+
+<ul class="footnotes"><li class="footnote" id="footnote1_akgrco0"><a class="footnote-label" href="#footnoteref1_akgrco0">1.</a> For further details, questions, and offers of assistance, please start with the <a href="https://openwireless.org/router/download">FAQ </a>and <a href="https://github.com/EFForg/OpenWireless">Github pages</a>. If that does not suffice or for press inquiries please contact <a href="https://www.eff.org/about/staff/ranga-krishnan">Ranga Krishnan</a></li>
+<li class="footnote" id="footnote2_a07a3z9"><a class="footnote-label" href="#footnoteref2_a07a3z9">2.</a> The prototype implementation includes a defined ceiling for instantaneous guest throughput as well as a long-term quota. In the future, we will implement a dynamic ceiling so that while you aren't using your network, guests can temporarily borrow it at full speed if enough quota remains available.</li>
+</ul></div></div></div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-entity-field pane-node-field-issue"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="field field-name-field-issue field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="/issues/open-wireless" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Open Wireless</a></div><div class="field-item odd"><a href="/issues/security" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Security</a></div></div></div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-custom pane-1"  >
+  
+      
+  
+  <div class="pane-content">
+    <br clear="all">
+
+  </div>
+
+  
+  </div>
+</div>
+  </div>
+  <div class="center-wrapper">
+    <div class="panel-panel panel-col-first">
+      <div class="inside"><div class="panel-pane pane-views-panes pane-blog-related-posts-panel-pane-1"  >
+  
+        <h2 class="pane-title">More DeepLinks Posts Like This</h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-blog-related-posts view-id-blog_related_posts view-display-id-panel_pane_1 view-dom-id-e75d3d4e8495b3061c4275f7c532f571">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-created">        <span class="field-content">October 2012</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2012/10/why-we-have-open-wireless-movement">Why We Have An Open Wireless Movement</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-created">        <span class="field-content">March 2013</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2013/03/google-wi-fi-settlement-really-really-awful">Google&#039;s Wi-Fi Snooping Settlement is Really, Really Awful</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-created">        <span class="field-content">April 2014</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2014/04/dear-web-developers-thank-you-youre-awesome-and-wow-did-really-just-happen">Dear Web Developers: Thank You, You’re Awesome, and Wow Did That Really Just Happen?   </a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-created">        <span class="field-content">June 2013</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2013/06/comcasts-new-neighborhood-hotspot-plan-isnt-quite-open-wireless-we-want">Comcast&#039;s New &quot;Neighborhood Hotspot&quot; Plan Isn&#039;t Quite the Open Wireless We Want</a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd views-row-last">  
+  <div class="views-field views-field-created">        <span class="field-content">April 2011</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2011/04/open-wireless-movement">Why We Need An Open Wireless Movement</a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+
+    <div class="panel-panel panel-col-last">
+      <div class="inside"><div class="panel-pane pane-views-panes pane-blog-recent-five-panel-pane-1"  >
+  
+        <h2 class="pane-title">Recent DeepLinks Posts</h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-blog-recent-five- view-id-blog_recent_five_ view-display-id-panel_pane_1 view-dom-id-91d26aa58626e17806f5885c7f6da368">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 20, 2014</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2014/07/building-open-wireless-router" class="active">Calling All Hackers: Help Us Build an Open Wireless Router</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 18, 2014</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2014/07/former-state-department-executive-calls-executive-order-12333-legal-loophole">Former State Department Executive Calls Executive Order 12333 a “Legal Loophole” for Spying on Americans   </a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 18, 2014</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2014/07/eff-gives-court-more-detail-governments-destruction-evidence">EFF Gives Court More Detail on Government’s Destruction of Evidence</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 17, 2014</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2014/07/deep-dive-defense-neutral-net">Deep Dive: In Defense of A Neutral Net</a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd views-row-last">  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 17, 2014</span>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/deeplinks/2014/07/general-noriega-attacks-activision-how-right-publicity-led-dictator-censor-call">General Noriega Attacks Activision: How The ‘Right of Publicity’ Led A Dictator to Censor Call of Duty</a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+  </div>
+  <div class="panel-panel panel-col-middle">
+    <div class="inside"><div class="panel-pane pane-views-panes pane-all-blog-categories-panel-pane-1"  >
+  
+        <h2 class="pane-title">Deeplinks Topics</h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-all-blog-categories view-id-all_blog_categories view-display-id-panel_pane_1 view-dom-id-3cd7138dbf013bdb41e9353f17794cd8">
+        
+  
+  
+      <div class="view-content">
+      
+<div class='column archives-column-0'><ul class='archives-group'><li>  
+          <a href="/deeplinks/analog-hole">Analog Hole</a>  </li><li>  
+          <a href="/deeplinks/anonymity">Anonymity</a>  </li><li>  
+          <a href="/deeplinks/anti-counterfeiting-trade-agreement">Anti-Counterfeiting Trade Agreement</a>  </li><li>  
+          <a href="/deeplinks/biometrics">Biometrics</a>  </li><li>  
+          <a href="/deeplinks/bloggers-under-fire">Bloggers Under Fire</a>  </li><li>  
+          <a href="/deeplinks/bloggers%27-rights">Bloggers&#039; Rights</a>  </li><li>  
+          <a href="/deeplinks/broadcast-flag">Broadcast Flag</a>  </li><li>  
+          <a href="/deeplinks/broadcasting-treaty">Broadcasting Treaty</a>  </li><li>  
+          <a href="/deeplinks/calea">CALEA</a>  </li><li>  
+          <a href="/deeplinks/cell-tracking">Cell Tracking</a>  </li><li>  
+          <a href="/deeplinks/coders%27-rights-project">Coders&#039; Rights Project</a>  </li><li>  
+          <a href="/deeplinks/computer-fraud-and-abuse-act-reform">Computer Fraud And Abuse Act Reform</a>  </li><li>  
+          <a href="/deeplinks/content-blocking">Content Blocking</a>  </li><li>  
+          <a href="/deeplinks/copyright-trolls">Copyright Trolls</a>  </li><li>  
+          <a href="/deeplinks/council-of-europe">Council of Europe</a>  </li><li>  
+          <a href="/deeplinks/cyber-security-legislation">Cyber Security Legislation</a>  </li><li>  
+          <a href="/deeplinks/cyberslapp">CyberSLAPP</a>  </li><li>  
+          <a href="/deeplinks/defend-your-right-to-repair%21">Defend Your Right to Repair!</a>  </li><li>  
+          <a href="/deeplinks/development-agenda">Development Agenda</a>  </li><li>  
+          <a href="/deeplinks/digital-books">Digital Books</a>  </li><li>  
+          <a href="/deeplinks/digital-radio">Digital Radio</a>  </li><li>  
+          <a href="/deeplinks/digital-video">Digital Video</a>  </li><li>  
+          <a href="/deeplinks/dmca">DMCA</a>  </li><li>  
+          <a href="/deeplinks/dmca-rulemaking">DMCA Rulemaking</a>  </li><li>  
+          <a href="/deeplinks/do-not-track">Do Not Track</a>  </li><li>  
+          <a href="/deeplinks/drm">DRM</a>  </li><li>  
+          <a href="/deeplinks/e-voting-rights">E-Voting Rights</a>  </li><li>  
+          <a href="/deeplinks/eff-europe">EFF Europe</a>  </li><li>  
+          <a href="/deeplinks/encrypting-the-web">Encrypting the Web</a>  </li><li>  
+          <a href="/deeplinks/export-controls">Export Controls</a>  </li><li>  
+          <a href="/deeplinks/fair-use-and-intellectual-property%3A-defending-the-balance">Fair Use and Intellectual Property: Defending the Balance</a>  </li><li>  
+          <a href="/deeplinks/faqs-for-lodsys-targets">FAQs for Lodsys Targets</a>  </li></div><div class='column archives-column-1'><ul class='archives-group'><li>  
+          <a href="/deeplinks/file-sharing">File Sharing</a>  </li><li>  
+          <a href="/deeplinks/fixing-copyright?-the-2013-2014-copyright-review-process=">Fixing Copyright? The 2013-2014 Copyright Review Process</a>  </li><li>  
+          <a href="/deeplinks/free-speech">Free Speech</a>  </li><li>  
+          <a href="/deeplinks/ftaa">FTAA</a>  </li><li>  
+          <a href="/deeplinks/genetic-information-privacy">Genetic Information Privacy</a>  </li><li>  
+          <a href="/deeplinks/hollywood-v.-dvd">Hollywood v. DVD</a>  </li><li>  
+          <a href="/deeplinks/how-patents-hinder-innovation-%28graphic%29">How Patents Hinder Innovation (Graphic)</a>  </li><li>  
+          <a href="/deeplinks/innovation">Innovation</a>  </li><li>  
+          <a href="/deeplinks/international">International</a>  </li><li>  
+          <a href="/deeplinks/international-privacy-standards">International Privacy Standards</a>  </li><li>  
+          <a href="/deeplinks/internet-governance-forum">Internet Governance Forum</a>  </li><li>  
+          <a href="/deeplinks/law-enforcement-access">Law Enforcement Access</a>  </li><li>  
+          <a href="/deeplinks/legislative-solutions-for-patent-reform">Legislative Solutions for Patent Reform</a>  </li><li>  
+          <a href="/deeplinks/locational-privacy">Locational Privacy</a>  </li><li>  
+          <a href="/deeplinks/mandatory-data-retention">Mandatory Data Retention</a>  </li><li>  
+          <a href="/deeplinks/mandatory-national-ids-and-biometric-databases">Mandatory National IDs and Biometric Databases</a>  </li><li>  
+          <a href="/deeplinks/mass-surveillance-technologies">Mass Surveillance Technologies</a>  </li><li>  
+          <a href="/deeplinks/medical-privacy">Medical Privacy</a>  </li><li>  
+          <a href="/deeplinks/national-security-and-medical-information">National Security and Medical Information</a>  </li><li>  
+          <a href="/deeplinks/national-security-letters">National Security Letters</a>  </li><li>  
+          <a href="/deeplinks/net-neutrality">Net Neutrality</a>  </li><li>  
+          <a href="/deeplinks/no-downtime-for-free-speech">No Downtime for Free Speech</a>  </li><li>  
+          <a href="/deeplinks/nsa-spying">NSA Spying</a>  </li><li>  
+          <a href="/deeplinks/oecd">OECD</a>  </li><li>  
+          <a href="/deeplinks/online-behavioral-tracking">Online Behavioral Tracking</a>  </li><li>  
+          <a href="/deeplinks/open-access">Open Access</a>  </li><li>  
+          <a href="/deeplinks/open-wireless">Open Wireless</a>  </li><li>  
+          <a href="/deeplinks/organizing-resources">Organizing Resources</a>  </li><li>  
+          <a href="/deeplinks/patent-busting-project">Patent Busting Project</a>  </li><li>  
+          <a href="/deeplinks/patent-trolls">Patent Trolls</a>  </li><li>  
+          <a href="/deeplinks/patents">Patents</a>  </li><li>  
+          <a href="/deeplinks/patriot-act">PATRIOT Act</a>  </li></div><div class='column archives-column-2'><ul class='archives-group'><li>  
+          <a href="/deeplinks/pen-trap">Pen Trap</a>  </li><li>  
+          <a href="/deeplinks/policy-analysis">Policy Analysis</a>  </li><li>  
+          <a href="/deeplinks/printers">Printers</a>  </li><li>  
+          <a href="/deeplinks/privacy">Privacy</a>  </li><li>  
+          <a href="/deeplinks/public-health-reporting-and-hospital-discharge-data">Public Health Reporting and Hospital Discharge Data</a>  </li><li>  
+          <a href="/deeplinks/reading-accessibility">Reading Accessibility</a>  </li><li>  
+          <a href="/deeplinks/real-id">Real ID</a>  </li><li>  
+          <a href="/deeplinks/rfid">RFID</a>  </li><li>  
+          <a href="/deeplinks/search-engines">Search Engines</a>  </li><li>  
+          <a href="/deeplinks/search-incident-to-arrest">Search Incident to Arrest</a>  </li><li>  
+          <a href="/deeplinks/section-230-of-the-communications-decency-act">Section 230 of the Communications Decency Act</a>  </li><li>  
+          <a href="/deeplinks/security">Security</a>  </li><li>  
+          <a href="/deeplinks/social-networks">Social Networks</a>  </li><li>  
+          <a href="/deeplinks/sopa/pipa%3A-internet-blacklist-legislation">SOPA/PIPA: Internet Blacklist Legislation</a>  </li><li>  
+          <a href="/deeplinks/state-surveillance-%26-human-rights">State Surveillance &amp; Human Rights</a>  </li><li>  
+          <a href="/deeplinks/state-sponsored-malware">State-Sponsored Malware</a>  </li><li>  
+          <a href="/deeplinks/student-and-community-organizing">Student and Community Organizing</a>  </li><li>  
+          <a href="/deeplinks/surveillance-drones">Surveillance Drones</a>  </li><li>  
+          <a href="/deeplinks/terms-of-%28ab%29use">Terms Of (Ab)Use</a>  </li><li>  
+          <a href="/deeplinks/test-your-isp">Test Your ISP</a>  </li><li>  
+          <a href="/deeplinks/the-%22six-strikes%22-copyright-surveillance-machine">The &quot;Six Strikes&quot; Copyright Surveillance Machine</a>  </li><li>  
+          <a href="/deeplinks/the-global-network-initiative">The Global Network Initiative</a>  </li><li>  
+          <a href="/deeplinks/the-law-and-medical-privacy">The Law and Medical Privacy</a>  </li><li>  
+          <a href="/deeplinks/trans-pacific-partnership-agreement">Trans-Pacific Partnership Agreement</a>  </li><li>  
+          <a href="/deeplinks/transparency">Transparency</a>  </li><li>  
+          <a href="/deeplinks/travel-screening">Travel Screening</a>  </li><li>  
+          <a href="/deeplinks/trusted-computing">Trusted Computing</a>  </li><li>  
+          <a href="/deeplinks/uncategorized">Uncategorized</a>  </li><li>  
+          <a href="/deeplinks/video-games">Video Games</a>  </li><li>  
+          <a href="/deeplinks/wikileaks">Wikileaks</a>  </li><li>  
+          <a href="/deeplinks/wipo">WIPO</a>  </li></ul></div><div class="clear-block"></div>    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      &nbsp;
+
+    </div>
+  
+  
+</div>  </div>
+
+  
+  </div>
+</div>
+  </div>
+  <div class="center-wrapper">
+    <div class="panel-panel panel-col-first">
+      <div class="inside"></div>
+    </div>
+
+    <div class="panel-panel panel-col-last">
+      <div class="inside"></div>
+    </div>
+  </div>
+  <div class="panel-panel panel-col-bottom">
+    <div class="inside"></div>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+        </div>
+                <div class="layout-right-sidebar">
+          <div class="panel-pane pane-sidebar-button"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="sidebar-big-button donate"><a href="https://supporters.eff.org/donate">Donate to EFF</a></div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-sidebar-newsletter"  >
+  
+        <h2 class="pane-title">Stay in Touch</h2>
+    
+  
+  <div class="pane-content">
+    <form action="https://supporters.eff.org/subscribe" method="post" class="newsletter-form" accept-charset="UTF-8">
+<div class="form-item form-type-textfield form-item-email-address">
+  <label for="edit-email" style="display:none">Email Address</label>
+  <input placeholder="Email Address" type="text" style="margin-bottom:5px" name="email" value="" size="30" maxlength="128" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-postal-code">
+  <label for="edit-postal-code" style="display:none">Postal Code (optional) </label>
+  <input placeholder="Postal Code (optional)" type="text" name="postal_code" value="" size="30" maxlength="128" class="form-text" />
+</div>
+<input type="submit" name="op" value="Sign Up Now" class="form-submit" />
+<input type="hidden" name="form_id" value="eff_supporters_library_subscribe_form" />
+</form>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-nsa-spying"  >
+  
+        <h2 class="pane-title">NSA Spying</h2>
+    
+  
+  <div class="pane-content">
+    <div>
+  <div>
+    <p><a style="display:block; height:50px; background-color:#ffffff; padding:5px; border-radius:20px;" href="/nsa-spying">
+      <img style="float:left; margin-right:10px;" width="50" height="50" src="/sites/all/modules/custom/eff_library/images/NSA-small.png" title="NSA Spying" />
+      <strong style="float:left; height:50px; line-height:50px; font-family: Arial">eff.org/nsa-spying</strong>
+    </a></p>
+  </div>
+  <p style="font-size:0.8em; line-height:150%; color:#666666;">EFF is leading the fight against the NSA's illegal mass surveillance program. <a href="/nsa-spying">Learn more</a> about what the program is, how it works, and what you can do.</p>
+</div>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views-panes pane-twitterator-follow-eff-panel-pane-1"  >
+  
+        <h2 class="pane-title">Follow EFF</h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-twitterator-follow-eff view-id-twitterator_follow_eff view-display-id-panel_pane_1 view-dom-id-9a1cac3b066ab3057feade8fb2bac601">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-field-tweet">        <div class="field-content"><p>Calling all hackers! We just launched our Open Wireless Router. You can help us make it better. <a href="https://eff.org/r.whan">https://eff.org/r.whan</a></p>
+</div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 20 @ 9:38am</span>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-field-tweet">        <div class="field-content"><p>Former State Department official speaks out about NSA surveillance of US communications through a &quot;legal loophole&quot; <a href="https://eff.org/r.v10a">https://eff.org/r.v10a</a></p>
+</div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 18 @ 5:10pm</span>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+      
+  <div class="views-field views-field-field-tweet">        <div class="field-content"><p>Here&#039;s @EFF&#039;s schedule at @HOPEX this weekend: <a href="https://www.eff.org/event/hope-x">https://www.eff.org/event/hope-x</a></p>
+</div>  </div>  
+  <div class="views-field views-field-created">        <span class="field-content">Jul 18 @ 3:25pm</span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <ul id="social-networks">
+<li><a href="https://twitter.com/eff">Twitter</a></li>
+<li><a href="https://www.facebook.com/eff">Facebook</a></li>
+<li><a href="https://identi.ca/eff">Identi.ca</a></li>
+</ul>
+
+    </div>
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-menu-menu-projects"  id="projects-menu" >
+  
+        <h2 class="pane-title">Projects</h2>
+    
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="first leaf"><a href="/bloggers" title="">Bloggers&#039; Rights</a></li>
+<li class="leaf"><a href="/issues/coders" title="">Coders&#039; Rights</a></li>
+<li class="leaf"><a href="/social-networks" title="">Follow EFF</a></li>
+<li class="leaf"><a href="/free-speech-weak-link" title="">Free Speech Weak Links</a></li>
+<li class="leaf"><a href="https://globalchokepoints.org/" title="">Global Chokepoints</a></li>
+<li class="leaf"><a href="/https-everywhere" title="">HTTPS Everywhere</a></li>
+<li class="leaf"><a href="https://openwireless.org" title="">Open Wireless Movement</a></li>
+<li class="leaf"><a href="https://w2.eff.org/patent/" title="">Patent Busting</a></li>
+<li class="leaf"><a href="https://ssd.eff.org" title="">Surveillance Self-Defense</a></li>
+<li class="leaf"><a href="/takedowns" title="">Takedown Hall of Shame</a></li>
+<li class="leaf"><a href="http://www.teachingcopyright.org/" title="">Teaching Copyright</a></li>
+<li class="leaf"><a href="https://www.eff.org/issues/transparency" title="">Transparency Project</a></li>
+<li class="leaf"><a href="https://trollingeffects.org" title="">Trolling Effects</a></li>
+<li class="leaf"><a href="/helpout" title="">Ways To Help</a></li>
+<li class="last leaf"><a href="https://www.eff.org/fight" title="">Student Activism </a></li>
+</ul>  </div>
+
+  
+  </div>
+        </div>
+              </div>
+    </div>
+  </div>
+</div>
+<div id="footer-wrapper">
+  <div id="footer">
+    <div id="footerleft">
+      <div class="panel-pane pane-footer-elements"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="cc"><a href="https://www.eff.org/copyright"><img typeof="foaf:Image" src="https://www.eff.org/sites/all/themes/frontier/images/cc-by-logo.png" alt="Creative Commons Licensed" /></a></div>  </div>
+
+  
+  </div>
+    </div>
+    <div id="footerright">
+      <div class="panel-pane pane-block pane-menu-menu-footer-menu"  >
+  
+      
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="first leaf"><a href="/thanks" title="">Thanks</a></li>
+<li class="leaf"><a href="/rss" title="">RSS Feeds</a></li>
+<li class="leaf"><a href="/copyright" title="">Copyright Policy</a></li>
+<li class="leaf"><a href="/policy" title="">Privacy Policy</a></li>
+<li class="last leaf"><a href="/about/contact" title="">Contact EFF</a></li>
+</ul>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-custom pane-2"  >
+  
+      
+  
+  <div class="pane-content">
+    <noscript><img src="https://anon-stats.eff.org/piwik.php?idsite=1&amp;rec=1&amp;action_name=Calling%20All%20Hackers%3A%20Help%20Us%20Build%20an%20Open%20Wireless%20Router" style="border:0" alt="" /></noscript>
+<div id="anon-stats"></div><script>document.getElementById('anon-stats').innerHTML = '<img src="https://anon-stats.eff.org/piwik.php?idsite=1&amp;rec=1&amp;urlref='+document.referrer+'&amp;action_name=Calling%20All%20Hackers%3A%20Help%20Us%20Build%20an%20Open%20Wireless%20Router" style="border:0" alt="" />';</script>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+</div>  <a href="/librejs/jslicense" rel="jslicense" style="display: none">JavaScript license information</a></body>
+</html>
+
